@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && prisma migrate deploy && next build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
@@ -29,6 +30,7 @@
     "@mui/icons-material": "^6.5.0",
     "@mui/material": "^6.1.6",
     "@prisma/client": "^6.19.3",
+    "@vercel/blob": "^2.4.1",
     "jose": "^5.10.0",
     "next": "^15.5.19",
     "react": "^19.0.0",

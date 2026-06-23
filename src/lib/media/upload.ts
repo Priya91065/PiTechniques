@@ -2,6 +2,7 @@ import { randomBytes } from "node:crypto";
 import { mkdir, writeFile, unlink } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
+import { put, del } from "@vercel/blob";
 import { getServerEnv } from "@/lib/env";
 
 const RASTER = new Set(["image/jpeg", "image/png", "image/webp"]);
@@ -17,6 +18,11 @@ const EXT: Record<string, string> = {
 };
 
 const MAX_DIMENSION = 2400;
+
+/** Use Vercel Blob when a token is configured (production); else local disk (dev). */
+function blobEnabled(): boolean {
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+}
 
 export class UploadError extends Error {}
 
@@ -35,7 +41,8 @@ function publicUrlFor(uploadDir: string, filename: string): string {
   return `${prefix}/${filename}`.replace(/\/+/g, "/");
 }
 
-/** Validates, optimizes (raster) and writes an uploaded image to UPLOAD_DIR. */
+/** Validates, optimizes (raster) and stores an uploaded image — Vercel Blob in
+ *  production (BLOB_READ_WRITE_TOKEN set), otherwise the local UPLOAD_DIR. */
 export async function saveUpload(file: File): Promise<SavedFile> {
   const env = getServerEnv();
   const maxBytes = env.MAX_UPLOAD_MB * 1024 * 1024;
@@ -50,9 +57,6 @@ export async function saveUpload(file: File): Promise<SavedFile> {
   const buffer = Buffer.from(await file.arrayBuffer());
   const ext = EXT[file.type];
   const filename = `${Date.now()}-${randomBytes(6).toString("hex")}.${ext}`;
-  const uploadDir = path.join(process.cwd(), env.UPLOAD_DIR);
-  await mkdir(uploadDir, { recursive: true });
-  const dest = path.join(uploadDir, filename);
 
   let outBuffer: Buffer = buffer;
   let width: number | null = null;
@@ -74,22 +78,32 @@ export async function saveUpload(file: File): Promise<SavedFile> {
     height = outMeta.height ?? meta.height ?? null;
   }
 
-  await writeFile(dest, outBuffer);
+  let url: string;
+  if (blobEnabled()) {
+    const blob = await put(`uploads/${filename}`, outBuffer, { access: "public", contentType: file.type });
+    url = blob.url;
+  } else {
+    const uploadDir = path.join(process.cwd(), env.UPLOAD_DIR);
+    await mkdir(uploadDir, { recursive: true });
+    await writeFile(path.join(uploadDir, filename), outBuffer);
+    url = publicUrlFor(env.UPLOAD_DIR, filename);
+  }
 
-  return {
-    filename,
-    url: publicUrlFor(env.UPLOAD_DIR, filename),
-    mimeType: file.type,
-    sizeBytes: outBuffer.length,
-    width,
-    height,
-  };
+  return { filename, url, mimeType: file.type, sizeBytes: outBuffer.length, width, height };
 }
 
-/** Deletes a file from UPLOAD_DIR (basename only — no path traversal). */
-export async function deleteUploadFile(filename: string): Promise<void> {
+/** Deletes a stored file by its public URL (Blob) or filename/path (local). */
+export async function deleteUploadFile(urlOrFilename: string): Promise<void> {
+  if (/^https?:\/\//.test(urlOrFilename)) {
+    try {
+      await del(urlOrFilename);
+    } catch {
+      // Already gone — nothing to do.
+    }
+    return;
+  }
   const env = getServerEnv();
-  const dest = path.join(process.cwd(), env.UPLOAD_DIR, path.basename(filename));
+  const dest = path.join(process.cwd(), env.UPLOAD_DIR, path.basename(urlOrFilename));
   try {
     await unlink(dest);
   } catch {

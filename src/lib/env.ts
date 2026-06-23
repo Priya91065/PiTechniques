@@ -27,6 +27,10 @@ const envSchema = z.object({
   // Media (Phase 5)
   UPLOAD_DIR: z.string().default("public/uploads"),
   MAX_UPLOAD_MB: z.coerce.number().int().positive().default(10),
+
+  // Production file storage: when set (Vercel Blob), uploads go to Blob and
+  // persist across deploys; when unset, uploads use the local UPLOAD_DIR.
+  BLOB_READ_WRITE_TOKEN: z.string().optional(),
 });
 
 export type ServerEnv = z.infer<typeof envSchema>;

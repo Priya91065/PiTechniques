@@ -72,9 +72,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       err instanceof Prisma.PrismaClientInitializationError ||
       err instanceof Prisma.PrismaClientKnownRequestError
     ) {
-      console.error("[login] database error:", err.message);
+      // Logged to the server (Vercel function logs) for diagnosis; the client
+      // gets a safe, environment-agnostic message.
+      console.error("[login] database error:", err);
       return jsonError(
-        "Can't reach the database. Set DATABASE_URL in .env to a running PostgreSQL, then run `npm run db:migrate` and `npm run db:seed`.",
+        "Can't reach the database. Verify the DATABASE_URL environment variable is set correctly and that database migrations have been applied.",
         503,
         "DB_UNAVAILABLE",
       );

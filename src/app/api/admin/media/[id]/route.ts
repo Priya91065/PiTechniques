@@ -14,7 +14,7 @@ export async function DELETE(_req: NextRequest, { params }: Ctx): Promise<NextRe
   const media = await prisma.media.findUnique({ where: { id } });
   if (!media) return jsonError("Media not found", 404);
 
-  await deleteUploadFile(media.filename);
+  await deleteUploadFile(media.url);
   await prisma.media.delete({ where: { id } });
   await prisma.activityLog.create({
     data: {
@@ -67,7 +67,7 @@ export async function PUT(req: NextRequest, { params }: Ctx): Promise<NextRespon
 
   try {
     const saved = await saveUpload(file);
-    await deleteUploadFile(media.filename); // remove the old file
+    await deleteUploadFile(media.url); // remove the old file
     const updated = await prisma.media.update({
       where: { id },
       data: {
