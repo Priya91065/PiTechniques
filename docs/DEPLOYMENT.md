@@ -27,12 +27,13 @@ The admin panel talks to PostgreSQL through Prisma. On Vercel it failed because:
 
 | File | Change |
 | --- | --- |
-| `package.json` | `build` → `prisma generate && prisma migrate deploy && next build`; added `postinstall: prisma generate`. Guarantees a fresh Prisma Client **and** applies pending migrations to the production DB on every deploy. |
+| `package.json` | `build` → `prisma generate && next build`; added `postinstall: prisma generate`. Guarantees a fresh Prisma Client on every deploy. (Migrations are run as a one-off step — see below — so a missing/misconfigured DB never hard-fails the deploy.) |
 | `src/app/api/admin/auth/login/route.ts` | DB-error message is now environment-agnostic (no longer says "edit .env"); logs the full error to the server (visible in Vercel function logs). |
 | `.env.example` | Documents the pooled `DATABASE_URL` vs direct `DIRECT_URL` for Neon/Supabase on Vercel. |
 
-> Note: `prisma migrate deploy` needs the DB reachable **at build time**, so the
-> env vars below must be set for the **Production** (and Preview) environments.
+> The build **does not** require the DB (the homepage prerenders with built-in
+> fallbacks if the DB is unreachable at build time). But the running app and the
+> migrate/seed steps DO need the env vars below.
 
 ---
 
@@ -64,13 +65,16 @@ Generate a secret:
 1. **Provision Postgres** if you don't have one — Neon (or Vercel Postgres /
    Supabase). Copy both the **pooled** and **direct** connection strings.
 2. Put them in Vercel env vars (`DATABASE_URL` pooled, `DIRECT_URL` direct).
-3. **Migrations** apply automatically on deploy now (the build runs
-   `prisma migrate deploy`). To run them manually instead, from your machine:
+   **When adding each variable, tick all of Production, Preview AND Development**
+   so it's available at build and runtime — then **redeploy** (existing deploys
+   do not pick up new env vars automatically).
+3. **Apply migrations to the production DB — one time.** Run from your machine
+   with the production connection string (use the **direct** URL, since
+   migrations can't run through a pooler):
    ```bash
    DATABASE_URL="<direct-url>" DIRECT_URL="<direct-url>" npx prisma migrate deploy
    ```
-4. **Seed the admin + CMS data — once** (do NOT put this in the build; the seed
-   resets some tables). From your machine, pointed at the production DB:
+4. **Seed the admin + CMS data — once.** From your machine, pointed at prod:
    ```bash
    DATABASE_URL="<direct-url>" \
    DIRECT_URL="<direct-url>" \
@@ -81,17 +85,39 @@ Generate a secret:
    This creates the Super Admin and the initial CMS content (services,
    testimonials, case studies, jobs, nav, home stats, SEO, etc.).
 
+> Prefer auto-migrate on deploy? Set the project's **Build Command** (Vercel →
+> Settings → Build & Development) to
+> `prisma generate && prisma migrate deploy && next build`. Only do this once
+> `DATABASE_URL` **and** `DIRECT_URL` are set, or the build will fail.
+
 ---
 
 ## Deployment steps
 
 1. Commit & push these changes (or redeploy the current commit).
-2. Ensure the env vars above are set in Vercel **before** the build (the build
-   applies migrations).
-3. Trigger a deploy. The build will: generate the Prisma Client → apply
-   migrations to the production DB → build Next.js.
-4. Seed once (step 4 above) if you haven't.
-5. Visit `/admin/login` and sign in with the seeded Super Admin.
+2. Set the env vars above in Vercel (all environments) **and redeploy**.
+3. Run the one-time migrate (step 3) and seed (step 4) against the prod DB.
+4. Visit `/admin/login` and sign in with the seeded Super Admin.
+
+---
+
+## Troubleshooting: `Environment variable not found: DATABASE_URL`
+
+This exact error (seen in the Vercel build/runtime logs) means **`DATABASE_URL`
+is not present in the Vercel environment** — Prisma can't read
+`env("DATABASE_URL")` from `prisma/schema.prisma`. It is **not** a code problem.
+
+Fix:
+1. Vercel → your project → **Settings → Environment Variables**.
+2. Add `DATABASE_URL` (and `DIRECT_URL`) with the connection strings, ticking
+   **Production, Preview, and Development**.
+3. **Redeploy** (Deployments → ⋯ → Redeploy). Env-var changes only take effect
+   on a new build/deploy.
+
+During the build you may still see these Prisma errors logged while pages
+prerender — the site falls back to built-in content so the **build still
+succeeds**, but the admin/API need the variable at **runtime**, so it must be
+set regardless.
 
 ---
 
