@@ -1,0 +1,29 @@
+# Local PostgreSQL for development.
+# Requires Docker Desktop (https://www.docker.com/products/docker-desktop).
+# Start:   docker compose up -d
+# Stop:    docker compose down
+# Wipe:    docker compose down -v   (deletes all data)
+#
+# These credentials must match DATABASE_URL / DIRECT_URL in your .env:
+#   postgresql://pi_admin:pi_password@localhost:5432/pitechniques?schema=public
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pitechniques_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: pi_admin
+      POSTGRES_PASSWORD: pi_password
+      POSTGRES_DB: pitechniques
+    ports:
+      - "5432:5432"
+    volumes:
+      - pitechniques_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pi_admin -d pitechniques"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pitechniques_pgdata:

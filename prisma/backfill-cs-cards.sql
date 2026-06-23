@@ -1,0 +1,5 @@
+-- One-off backfill for the new case-study card fields (run after the migration).
+UPDATE case_studies SET "cardImage"='/images/chanakya.png', "cardImageMobile"='/images/chanakya-mobile.jpg', "cardClient"='Chanakya', "listImage"='/images/case-studies/case-studies.png', "listHeading"='chanakya | Fashion & LIFESTYLE' WHERE slug='chanakya';
+UPDATE case_studies SET "cardImage"='/images/ibs.png', "cardImageMobile"='/images/ibs-mobile.jpg', "cardClient"='IBSintelligence', "listImage"='/images/case-studies/case-studies1.png', "listHeading"='IBS intelligence | Fintech' WHERE slug='ibs';
+UPDATE case_studies SET "cardImage"='/images/citius.png', "cardImageMobile"='/images/citius-mobile.jpg', "cardClient"='CitiusTech', "listImage"='/images/case-studies/case-studies2.png', "listHeading"='citiustech | healthcare Technology' WHERE slug='citiusTech';
+UPDATE case_studies SET "cardImage"='/images/taj-ipad.png', "cardImageMobile"='/images/taj-ipad-mobile.jpg', "cardClient"='Taj Hotels', "listImage"='/images/case-studies/laptop-4.png', "listHeading"='taj | hospitality' WHERE slug='tajGroupofHotels';

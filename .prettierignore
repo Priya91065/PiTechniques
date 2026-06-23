@@ -1,0 +1,21 @@
+# Build output
+.next
+out
+build
+
+# Dependencies
+node_modules
+
+# Original verbatim assets (must stay byte-identical for pixel-perfect parity)
+public/js
+public/css
+public/webfonts
+public/images
+public/pdf
+*.min.*
+
+# Generated
+prisma/migrations
+*.tsbuildinfo
+next-env.d.ts
+package-lock.json

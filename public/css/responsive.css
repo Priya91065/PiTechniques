@@ -1,0 +1,2657 @@
+@media (min-width: 1921px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width:1922px){
+    .applyBtnSrollto {
+        position: inherit;
+    z-index: 0;
+}
+}
+
+@media (max-width: 1701px) {
+    .footer-newUI.desktopView .rightSideUI .address.desktopViewAdress p{
+         font-size: 16px;
+        line-height: 25px !important;
+    }
+    .footer-newUI .leftSideUI{
+        gap:20px;
+    }
+  
+    .card-details p {
+        padding-left: 70px;
+        margin-bottom: 0;
+    }
+    .auto-width {
+        width: calc(100% - 300px);
+    }
+    /* .footer-newUI.desktopView .leftSideUI h1,
+    .footer-newUI.desktopView .rightSideUI h1 {
+        font-size: 24px;
+    }
+    .footer-newUI.desktopView a,
+    .footer-newUI.desktopView .copyright,
+    .footer-newUI.desktopView .rightSideUI p {
+        FONT-SIZE: 16px;
+        line-height: 24px;
+    }
+    .footer-newUI.desktopView .footer-logo {
+        margin-right: 35px;
+    }
+    .footer-newUI.desktopView {
+        padding: 100px 0px;
+    } */
+    .numbers-data {
+        gap: 90px;
+        padding: 36px 80px;
+    }
+}
+
+@media (max-width:1650px){
+      .static-content table thead tr th{
+        width:auto;
+      }
+      .static-content table tbody tr td,
+     .static-content table tbody tr th{
+      padding-right:16px;
+    }
+}
+
+@media (max-width: 1550px) {
+    .work-carousel-new .service-info {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .testimonials-swiperUI .glide__slide.glide__slide p {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 80px;
+    }
+    .career-details-page .carrerForm {
+        margin-top: 100px;
+    }
+    .work-carousel-new .service-name {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .homepage .who-we-are {
+        padding-top: 224px;
+    }
+    .team-name {
+        font-size: 28px;
+        line-height: 37px;
+    }
+    .our-process .wow {
+        margin-bottom: 48px;
+    }
+    .jobOpprtunitiesBtn {
+        margin-top: 8px;
+    }
+    .work-carousel {
+        margin-top: 80px;
+    }
+    .our-work .owl-nav {
+        top: -170px;
+    }
+    .common-space160 {
+        padding: 220px 0px 160px;
+    }
+    .common-space140 {
+        padding: 140px 0px;
+    }
+    .who-we-are {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .career-details-page .who-we-are {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .common-space120 {
+        padding: 100px 0px;
+    }
+    .office-address {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .who-we-are p,
+    .paragraph-bottom-space p {
+        margin-bottom: 24px;
+    }
+    .case-studies-new .service-name-new {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .case-studies-new .common-ui p {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .case-studies-new .common-ui .service-details-new {
+        padding: 60px;
+    }
+    .homepage .logo-slider {
+        margin-bottom: 100px;
+    }
+    .case-studies-new .mobile-lapi-img img {
+        height: 330px;
+        width: auto;
+    }
+    .feature-list [class^="col"]:first-child {
+        padding-right: 35px;
+    }
+    .feature-list [class^="col"]:nth-child(2) {
+        padding: 0 35px;
+    }
+    .feature-list [class^="col"]:last-child {
+        padding-left: 35px;
+    }
+    .career-details-page .who-we-are {
+        padding-bottom: 100px;
+    }
+    .right-text {
+        width: 600px;
+    }
+    .services-sec {
+        padding: 220px 0px 160px;
+    }
+    .services-sec .row.justify-content-center {
+        justify-content: space-between !important;
+    }
+    .numbers-data {
+        min-width: 885px;
+    }
+    .count {
+        font-size: 230px;
+    }
+    .skeleton-container {
+        right: 15%;
+        height: 220px;
+    }
+    .service-page .who-we-are {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+    .service-page .service-name,
+    .career-details-page .service-name,
+    .section3 h2 {
+        margin-bottom: 32px;
+        margin-top: 0 !important;
+    }
+    .service-page .logo-slider {
+        margin-top: 240px;
+    }
+    .service-list {
+        margin-top: 100px;
+    }
+    .spacing120 {
+        margin-bottom: 80px;
+    }
+    .top-section-banner h2 {
+        font-size: 70px;
+        line-height: 80px;
+    }
+    .section-name {
+        margin-bottom: 80px;
+    }
+    .top-section p {
+        margin-bottom: 56px;
+    }
+    .btn-rounded img {
+        padding-left: 16px;
+    }
+    .numbers-data h3 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+    .numbers-data p {
+        font-size: 16px !important;
+        line-height: 16px !important;
+        margin: 0 !important;
+    }
+    /*Priya 25-March-2025 alignment issue*/
+    .all-services-res .card-details>div {
+        top: -8px;
+    }
+    .square-dot {
+        height: 10px;
+        width: 10px;
+    }
+    .aboutpage .service-details {
+        width: 31%;
+        padding: 52px 20px 28px;
+    }
+    .tag {
+        font-size: 16px !important;
+        line-height: 26px !important;
+        padding: 4px 22px;
+    }
+    .auto-width {
+        width: calc(100% - 200px);
+    }
+    .testimonials .content {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .top-section h2 {
+        font-size: 60px;
+        line-height: 60px;
+        margin-bottom: 20px;
+        width: 405px;
+    }
+    .left-div {
+        width: 405px;
+    }
+    .top-section p:not(.numbers-data p),
+    .service-page .service-info,
+    .case-studies-page .service-info,
+    .office-box .card-footer .ofc-name {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .case-studies-page .title-desc,
+    .title-desc,
+    .banner-text.banner-text-career h2 {
+        font-size: 48px;
+        line-height: 54px;
+    }
+    .case-studies-page .title-desc {
+        margin-bottom: 24px;
+    }
+    .case-studies-page .service-info {
+        margin-top: 0;
+    }
+    .team {
+        padding-top: 80px;
+    }
+    .case-studies-page .who-we-are,
+    .case-studies-details .who-we-are,
+    .career-page .logo-slider {
+        padding-bottom: 80px;
+    }
+    .all-services,
+    .aboutpage .all-services.auto-width {
+        margin-top: 100px;
+    }
+    .service-info,
+    .case-studies-page .service-info,
+    .case-studies-details .service-info,
+    .service-page .service-info,
+    .who-we-are p,
+    .title-info,
+    .service-list ul li,
+    .banner-text.banner-text-career p {
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .case-studies-details .service-info {
+        margin-bottom: 20px;
+    }
+    .service-list ul li {
+        margin-bottom: 30px;
+    }
+    .case-studies-details .title-desc {
+        margin-bottom: 45px;
+    }
+    .service-name,
+    .service-page .service-name {
+        font-size: 27px;
+        line-height: 40px;
+        margin-top: 48px;
+    }
+    .service-name-new {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .service-details {
+        padding: 28px 32px;
+        margin-bottom: 40px;
+    }
+    .opening-box .service-info {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .opening-box .arrow-white {
+        height: 40px;
+        width: 40px;
+    }
+    .footer-menu a,
+    .address p,
+    footer .getintouch li p {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .card-details img {
+        height: 33px;
+    }
+    .card-details h6 {
+        font-size: 21px;
+        margin-left: 25px;
+    }
+    .aboutpage .card-details .service-info {
+        font-size: 14px;
+    }
+    .card-details p {
+        margin-top: 8px;
+    }
+    .team-details {
+        padding: 16px 20px 20px;
+    }
+    .office-box .card-footer .ofc-name {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .office-box .card-footer {
+        padding: 18px 15px;
+    }
+    .number-data-main .total-number p {
+        margin-bottom: 0;
+    }
+    .footerTopSpacing {
+        padding-top: 0;
+    }
+    .aboutpage .all-services .service-name {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    .app-services-new h3 {
+        font-size: 17px;
+        line-height: 22px;
+    }
+    .service-page .all-services-newUI .service-name {
+        font-size: 27px;
+        line-height: 34px;
+    }
+    .service-page .all-services-newUI .service-info {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .team-details .title-info {
+        line-height: 28px;
+    }
+    .footer-newUI .rightSideUI {
+        gap: 32px;
+    }
+    .static-pages h1{
+        font-size:48px;
+        line-height: 54px;
+    }
+    .static-pages{
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .static-content h2, .static-content li, .static-content p {
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .static-content table tbody tr td, .static-content table thead tr th{
+            font-size: 16px;
+                line-height: 25px;
+    }
+    .static-pages h1{
+        margin-bottom:80px;
+    }
+    .footer-menu a{
+        font-size: 16px;
+        line-height: 25px;
+    }
+    
+}
+
+@media (max-width:1445px){
+.footer-newUI.desktopView .largeScreenFooterLogo {
+     margin-top: 42px;
+    }
+}
+
+@media (max-width: 1440px) {
+      
+    .footer-newUI.desktopView .footerColumn {
+        padding: 50px;
+    }
+    .customgap {
+        gap: 30px;
+    }
+    .case-studies-page .mr-194 {
+        margin-right: 100px;
+    }
+    .footer-menu ul li {
+        margin-bottom: 20px;
+    }
+    .left-div {
+        margin-bottom: 160px;
+    }
+    .blankdiv-bg{
+    height:350px;
+}
+}
+
+@media (max-width: 1366px) {
+    .case-studies-new .common-ui h6 {
+        font-size: 17px;
+        letter-spacing: 2.55px;
+    }
+    /*Priya 25-March-2025 alignment issue*/
+    .case-studies-subtitle {
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .all-services-res .card-details>div {
+        top: -12px;
+    }
+    .white-tag.tag {
+        padding: 6px 16px;
+    }
+    .service-page .mr-194 {
+        margin-right: 100px;
+    }
+    .numbers-data {
+        bottom: -72px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .bannershape {
+        width: 100%;
+    }
+    .numbers-data {
+        padding: 20px 60px;
+        height: 110px;
+    }
+    .numbers-data h3 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .navbar-nav .nav-link,
+    .address p {
+        font-size: 15px;
+        line-height: 19px;
+    }
+    .navbar .btn-rounded {
+        padding: 10px 24px;
+        font-size: 10px;
+        height: 35px;
+    }
+    .bottomimg {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1280px) {
+    .case-studies-new .mobile-lapi-img {
+        position: initial;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .who-we-are p {
+        line-height: 28px;
+    }
+    .newoffice1 {
+        background-size: cover;
+    }
+    .pl-20 {
+        padding-left: 12px;
+    }
+    .pr-20 {
+        padding-right: 12px;
+    }
+    .case-studies-new .common-ui .service-details-new {
+        padding: 60px;
+    }
+    .homebanner-btn {
+        margin-top: 24px;
+    }
+    .testimonials-home.testimonials {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .testimonials-home.testimonials .container-fluid {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .aboutpage .service-details {
+        width: 30%;
+    }
+    .left-div {
+        width: 100%;
+    }
+    .services-sec {
+        padding: 140px 0px !important;
+    }
+    .count {
+        font-size: 130px;
+    }
+    .skeleton-container {
+        right: 8%;
+        bottom: 60px;
+        width: 280px;
+    }
+    .career-page .who-we-are .title-desc {
+        margin-bottom: 40px;
+    }
+    .homevideo {
+        display: none;
+    }
+    .all-services-res .card-details>div {
+        top: 0px;
+    }
+    .top-section .row [class^="col"] {
+        width: 100%;
+    }
+    .top-section,
+    .testimonials {
+        padding: 140px 52px;
+    }
+    .our-work {
+        padding-bottom: 50px;
+    }
+    .top-section {
+        padding-right: 52px !important;
+    }
+    .left-div {
+        margin-top: 0px;
+        margin-bottom: 140px;
+        /* text-align: center; */
+    }
+    .aboutpage .left-div,
+    .case-studies-details .left-div {
+        margin-bottom: 0;
+    }
+    .aboutpage .top-section,
+    .case-studies-page .top-section,
+    .case-studies-details .top-section {
+        padding-bottom: 0;
+    }
+    .top-section h2 {
+        font-size: 60px;
+        line-height: 64px;
+        width: 650px;
+        margin: 0 auto;
+    }
+    .top-section p:not(.numbers-data p) {
+        font-size: 26px;
+        line-height: 36px;
+        margin-top: 20px;
+        margin-bottom: 56px;
+    }
+    /* .numbers-data {
+        transform: unset;
+        position: relative;
+        left: unset;
+        min-width: calc(100% - 104px);
+        bottom: -55px;
+    } */
+    .number-data-main {
+        display: inline;
+    }
+    .mob-margin {
+        margin-top: 100px;
+    }
+    .bottomimg {
+        margin-top: 50px
+    }
+    .all-services {
+        margin-top: 50px;
+    }
+    .getintouch,
+    .address {
+        margin-top: 30px;
+    }
+    .footer-newUI .getintouch,
+    .footer-newUI .address {
+        margin-top: 0px;
+    }
+    .service-info:not(.our-work .service-info) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .service-details {
+        margin-bottom: 24px;
+    }
+    .our-work .title-desc {
+        width: 320px;
+    }
+    .our-work .owl-nav {
+        top: -280px;
+    }
+    .our-work .service-info {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .common-space140,
+    .common-space160 {
+        padding: 120px 0px;
+    }
+    .common-space120 {
+        padding: 100px 0px;
+    }
+    .tabletsection {
+        display: block;
+        width: 100%;
+        padding-top: 90px;
+    }
+    .tabletimg {
+        background-image: url(../images/Team_Business_Office.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 520px;
+    }
+    .case-studies-page .tabletimg {
+        background-image: url(../images/case-studies/case-studies-right.jpg);
+        background-position: top;
+    }
+    .case-studies-details .tabletimg {
+        background-image: url(../images/case-studies/case-study-white.jpg);
+        background-position: top;
+    }
+    .right-image,
+    .right-image-white {
+        display: none;
+    }
+    .footer-newUI.desktopView .leftSideUI h1,
+    .footer-newUI.desktopView .rightSideUI h1 {
+        font-size: 28px;
+    }
+    .footer-newUI.desktopView .footerColumn {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .homepage .testimonials .owl-carousel .owl-item {
+        margin-right: 32px;
+    }
+    .mb64 {
+        margin-bottom: 64px;
+    }
+    .mr-194,
+    .case-studies-page .mr-194 {
+        margin-right: 0;
+    }
+    /* .our-work {
+        padding-left: 105px;
+    } */
+    .justify-content-between-small {
+        justify-content: space-between;
+    }
+    .mob-img {
+        margin-bottom: 48px;
+    }
+    .prev {
+        transform: none;
+        opacity: 1;
+    }
+    .next {
+        transform: none;
+        opacity: 1;
+    }
+    .career-page .title-desc br {
+        display: none;
+    }
+    .auto-width {
+        width: calc(100% - 100px);
+    }
+}
+
+@media (max-width: 1199px) {
+    
+    .homepage .all-services .removeUnderline,
+    .case-studies-page .common-ui .removeUnderline{
+        transition:none !important;
+    }
+    .applyBtnSrollto {
+        position: inherit;
+    z-index: 0;
+}
+    .working-at-pi-new .row img {
+        border-radius: 8px;
+        margin-bottom: 0px;
+    }
+    .frame4-new-bgimage {
+        border-radius: 8px;
+        margin-left: 0px;
+        height: calc(100% - 4px);
+    }
+  
+    .career-page .who-we-are {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+   
+    .number-data-main {
+        display: flex;
+    }
+    .numbers-data {
+        transform: unset;
+        position: relative;
+        left: unset;
+        min-width: calc(100% - 168px);
+        bottom: -55px;
+    }
+    .footerTopSpacing {
+        padding-top: 0px;
+    }
+   
+    .section3 {
+        height: 500px;
+    }
+    .service-page .who-we-are .title-desc {
+        margin-bottom: 80px;
+    }
+    .who-we-are .row {
+        justify-content: start !important;
+    }
+    .right-text {
+        width: 100%;
+    }
+    .common-space140,
+    .common-space160 {
+        padding: 180px 84px 160px;
+    }
+    .services-sec {
+        padding: 180px 84px !important;
+    }
+    .common-space120 {
+        padding: 120px 84px 80px;
+    }
+    .homepage .logo-slider,
+    .service-page .logo-slider {
+        margin-bottom: 120px !important;
+    }
+    .address .linkedInIcon {
+        font-size: 22px;
+    }
+    .homepage .our-clients.common-space120 {
+        padding: 80px 52px 120px;
+    }
+    .top-section h2 {
+        font-size: 55px;
+    }
+    .top-section p:not(.numbers-data p) {
+        font-size: 28px;
+        line-height: 36px;
+        margin-top: 24px;
+    }
+    .homebanner-btn {
+        margin-top: 32px;
+    }
+    .btn-outline-secondary-new {
+        line-height: 12px;
+        font-size: 12px;
+    }
+    .our-work .service-info {
+        font-size: 17px;
+        line-height: 27px;
+    }
+    .service-info,
+    .case-studies-page .service-info,
+    .case-studies-details .service-info,
+    .service-page .service-info,
+    .who-we-are p,
+    .title-info,
+    .service-list ul li,
+    .banner-text.banner-text-career p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .numbers-data {
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 16px 48px 28px;
+        gap: 16px;
+    }
+    .number-data-main .total-number p {
+        font-size: 13px;
+        line-height: 12px;
+        letter-spacing: 1.3px;
+    }
+    .numbers-data h3 {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .homepage .who-we-are {
+        padding-top: 226px;
+    }
+    .case-studies-page .title-desc,
+    .title-desc,
+    .banner-text.banner-text-career h2 {
+        font-size: 54px;
+        line-height: 58px;
+    }
+    .small-title {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .jobOpprtunitiesBtn {
+        margin-top: 16px;
+    }
+    .homepage .bottomimg {
+        margin-top: 38px;
+    }
+    .mb64 {
+        margin-bottom: 40px;
+    }
+    .all-services {
+        margin-top: 120px;
+    }
+    .service-name-new {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 72px;
+    }
+    .tag {
+        font-size: 19px !important;
+        line-height: 28px !important;
+    }
+    .service-details {
+        padding: 32px 40px;
+        margin-bottom: 40px;
+    }
+    .about-newoffice {
+        margin-left: 0;
+        width: 100%;
+        height: 520px;
+        background-position: left;
+        margin-top: 40px;
+    }
+    .aboutpage .all-services-newUI {
+        margin-top: 80px;
+    }
+    .aboutpage .service-details {
+        padding: 92px 32px 28px;
+        width: calc(33.33% - 20px);
+        flex: inherit;
+    }
+    .our-process {
+        margin-top: 120px;
+    }
+    .our-process .wow {
+        margin-bottom: 60px;
+    }
+    .our-process h4 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .service-info:not(.our-work .service-info) {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .our-process-italicTitle {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .team {
+        padding-top: 80px;
+    }
+    .team-card {
+        padding: 0 10px;
+    }
+    .team-card .card {
+        margin-bottom: 60px;
+    }
+    .team-details {
+        padding: 16px 32px 20px;
+    }
+    .team-name {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .team-details .title-info {
+        line-height: 24px;
+        font-size: 16px;
+    }
+    .case-studies-new .common-ui .service-details-new {
+        padding: 100px 84px;
+    }
+    .case-studies-new .service-name-new {
+        font-size: 34px;
+        line-height: 40px;
+    }
+    .working-at-pi {
+        padding: 100px 84px 80px;
+    }
+    .case-studies-new .mobile-lapi-img {
+        justify-content: end;
+        margin-left: 72px;
+    }
+    .career-details-page .service-list ul li {
+        padding-left: 18px;
+    }
+    .section3 {
+        height: 600px;
+        background-attachment: inherit;
+        background-position: center;
+    }
+    .case-studies-page .tag {
+        font-size: 16px !important;
+        line-height: 24px !important;
+    }
+    .case-studies-new .common-ui p {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .case-studies-new .common-ui h6 {
+        font-size: 16px;
+        letter-spacing: 1.6px;
+    }
+    .service-details-new .onHoverArrow,
+    .common-ui .service-details-new .onHoverArrow {
+        top: 56px;
+        right: 76px;
+    }
+    .contact-page .office-address {
+        margin-bottom: 32px !important;
+    }
+    .contact-page .service-name {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 80px !important;
+        margin-bottom: 40px;
+    }
+    .custom-input .form-label {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .custom-input .form-control {
+        font-size: 19px;
+        line-height: 24px;
+    }
+    .custom-input .form-group {
+        margin-bottom: 60px;
+    }
+    .service-page .app-services-new {
+        row-gap: 60px;
+        margin: 80px 0 72px;
+    }
+    .service-page .app-services-new .mt-30 {
+        margin-top: -28px;
+    }
+    .app-services-new .custom-col {
+        flex: 0 0 auto;
+        max-width: initial;
+    }
+    .app-services-new h3 {
+        padding: 26px 0 12px;
+    }
+    .our-work .owl-nav {
+        right: 86px;
+        margin-top: 0;
+        top: -175px;
+    }
+    footer {
+        padding: 54px 80px 40px;
+    }
+    .footer-newUI .leftSideUI {
+        flex-direction: column;
+        gap: 0;
+        margin-right: 36px;
+    }
+    .blankli{
+      display: block;
+    height: 2px;
+    }
+        .footer-newUI.desktopView .rightSideUI .address.desktopViewAdress p {
+        font-size: 19px;
+        line-height: 28px !important;
+    }
+    .footer-newUI .rightSideUI {
+        gap: 36px;
+    }
+    .service-page .all-services-newUI .row {
+        margin-bottom: 60px;
+    }
+    .career-page .who-we-are .title-desc {
+        margin-bottom: 80px;
+    }
+    #currentOpening .title-desc {
+        margin-bottom: 80px;
+    }
+    .career-page .banner-text-career {
+        width: calc(100% - 168px) !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #jobaccordion {
+        margin-top: 80px;
+    }
+    #jobaccordion .accordion-body {
+        padding: 40px 0 0 8px;
+    }
+    .career-details-page .accordion-header h3,
+    .carrerForm h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    #jobaccordion .service-list ul li {
+        margin-bottom: 28px;
+    }
+    .career-details-page .service-list ul li {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .dividerUI {
+        margin: 80px 0;
+    }
+    .carrerForm h3 {
+        margin-bottom: 52px;
+    }
+    .custom-input button {
+        margin-top: 32px;
+    }
+    .footer-menu {
+        display: flex;
+        gap: 0;
+        justify-content: space-between;
+    }
+    .case-studies-new .mobile-lapi-img img {
+        height: 400px;
+    }
+    .testimonials .card {
+        padding: 36px;
+    }
+    .testimonials .owl-nav {
+        right: 86px;
+        top: -12.5rem;
+        margin-top: 0;
+    }
+    .testimonials .owl-item .card {
+        border: 1px solid #323131 !important;
+    }
+    .testimonials .owl-item.active .card {
+        border: 1px solid #F7941E !important;
+    }
+    .testimonials-swiperUI .glide__slide.glide__slide p {
+        font-size: 19px;
+        margin-bottom: 80px;
+        line-height: 28px;
+    }
+    .btnWithRightArrow {
+        font-size: 18px;
+        line-height: 100%;
+    }
+    .testimonials-home.testimonials {
+        padding-left: 84px !important;
+    }
+    .rightSideUI h1 {
+        margin-top: -85px;
+    }
+    .footer-newUI.desktopView {
+        padding: 90px 84px;
+    }
+    .footer-newUI.desktopView .footer-menu {
+        margin-bottom: 68px;
+    }
+    .footer-newUI.desktopView .footerColumn {
+        padding: 60px;
+    }
+    .footer-newUI .rightSideUI .address p {
+        margin-bottom: 25px;
+    }
+    .footer-newUI .rightSideUI.iPadViewAdress {
+        margin-bottom: 40px;
+    }
+    .footer-newUI.desktopView .copyright,
+    .footer-newUI.desktopView .rightSideUI p,
+    .footer-newUI.desktopView a {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .static-pages{
+        padding-right:84px;
+        padding-left:84px;
+    }
+    .static-pages h1{
+        font-size:54px;
+        line-height: 58px;
+    }
+    .static-content h2, .static-content li, .static-content p{
+        font-size:20px;
+        line-height: 28px;
+    }
+    .static-pages{
+        margin-top:87px;
+    }
+    .static-pages p br{
+        display: none;
+    }
+    .csr-div .csr-logo {
+    gap: 25px;
+}
+  .blankdiv-bg{
+    height:0;
+}
+}
+
+@media (max-width: 1100px) {
+   .header{
+        z-index: 9;
+    }
+     .footer-newUI .address.desktopViewAdress {
+        width: 225px;
+    }
+    .navbar-nav {
+        padding: 80px 52px;
+    }
+    .navbar-nav .nav-link {
+        padding: 20px 0;
+        width: max-content;
+    }
+    .navbar-nav li {
+        margin-bottom: 16px;
+    }
+    .navbar-nav li:last-child {
+        margin-top: 0px;
+    }
+    .hamburger-menu,
+    .closeMenu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 24px;
+    }
+    .navbar-collapse {
+        left: -100%;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+    }
+    .navbar {
+        background-color: #F6F6F6;
+        border: 0;
+    }
+    .navbar-collapse .navbar-brand {
+        display: block;
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: block !important;
+    }
+    .career-details-page .all-services .row {
+        padding: 30px 0;
+    }
+    .service-page .service-name {
+        margin-bottom: 32px;
+        margin-top: 0px !important;
+    }
+    .service-page .service-info {
+        margin-bottom: 24px;
+    }
+    .topBottom60 {
+        padding: 60px 84px !important;
+    }
+}
+
+@media (max-width: 1025px) {
+    .office-box .card-footer .ofc-name {
+        font-size: 25px;
+    }
+    
+    .getintouch li:last-child a {
+        display: inline-block;
+        width: 200px;
+        text-decoration: underline;
+        border-bottom: 0;
+    }
+}
+
+@media (min-width: 991px) {
+    .mob-numbers-data {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+     .service-page .service-name {
+        margin-top: 72px !important;
+    }
+     .fadeInLeft-lg {
+        animation-name: fadeInLeft;
+    }
+    .fadeInRight-lg {
+        animation-name: fadeInRight;
+    }
+    .career-topSection {
+        display: block;
+    }
+    .career-topSection .backToList {
+        margin-bottom: 54px;
+    }
+    .services-sec .pl-20 {
+        padding-left: 0;
+    }
+    .respTitleWidth {
+        width: 72%;
+    }
+    .case-studies-new .service-name-new {
+        min-height: auto;
+    }
+    .homepage .all-services .col-12:nth-last-child(2) .service-details {
+        margin-bottom: 8px;
+    }
+    .career-details-page .carrerForm {
+        width: auto;
+    }
+    .case-studies-subtitle {
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .services-sec .pr-20 {
+        padding-right: 0;
+    }
+    .career-page .top-section-banner .banner-text {
+        width: calc(100% - 32px);
+    }
+    .bannershape-mob {
+        display: block !important;
+    }
+    .bannershape {
+        display: none;
+    }
+    .service-page .all-services .row {
+        flex-direction: column;
+        align-items: start !important;
+    }
+    .career-details-page .service-list li {
+        width: 100%;
+    }
+    .address {
+        margin-top: 52px;
+    }
+    .aboutpage .all-services .service-details img {
+        height: 70px;
+    }
+    .aboutpage .all-services .service-name {
+        font-size: 22px;
+    }
+    .navbar {
+        padding: 0;
+    }
+    .auto-width {
+        width: calc(100% - 70px);
+    }
+    .work-carousel .card {
+        margin-right: 20px;
+    }
+    .navbar-collapse {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: -100%;
+    }
+    .foot-link {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+    }
+    .navbar-toggler {
+        margin-right: 24px;
+    }
+    .office-box .card-footer .ofc-name {
+        font-size: 31px;
+    }
+    .homepage .who-we-are {
+        padding-bottom: 0 !important;
+    }
+    .top-section-banner,
+    .career-page .top-section-banner {
+        height: calc(550px + 90px);
+    }
+    .right-image,
+    .right-image-white {
+        display: none;
+    }
+    .mob-numbers-data .total-number {
+        background-color: #333333;
+        /* height: 158px; */
+        margin-bottom: 24px;
+        text-align: center;
+        padding: 37px 0;
+        border-radius: 16px;
+    }
+    .mob-numbers-data .total-number h3 {
+        color: #f6f6f6;
+        font-size: 49px;
+        font-weight: 700;
+        line-height: 62.5px;
+        margin-bottom: 8px;
+    }
+    .mob-numbers-data .total-number p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        margin-bottom: 0;
+        color: #e4e4e4;
+    }
+    .testimonials .owl-nav {
+        top: -10.5rem;
+        margin-top: 0;
+    }
+    .testimonials .owl-carousel {
+        margin-top: 80px;
+    }
+    .copyright {
+        display: block;
+        margin-bottom: 0;
+    }
+    .aboutpage .service-details {
+        width: 47%;
+        flex: inherit;
+    }
+    .card-details h6 {
+        font-size: 20px;
+        line-height: 25px;
+        margin-bottom: 0;
+        margin-left: 26px;
+    }
+    .visibletext {
+        padding: 16px 18px 25px;
+    }
+    /*Priya 25-March-2025 alignment issue*/
+    .all-services-res .visibletext {
+        padding-bottom: 12px;
+    }
+    .card-details img {
+        height: 30px;
+    }
+    .aboutpage .service-info {
+        font-size: 15px;
+        line-height: 24px;
+        padding-left: 0;
+    }
+    .card-details {
+        padding-bottom: 4px;
+        padding-top: 0px;
+    }
+    .why-card:nth-child(even) {
+        padding-left: 12px;
+    }
+    .why-card:nth-child(odd) {
+        padding-right: 12px;
+    }
+    .our-process .service-info {
+        padding-left: 0;
+    }
+    .bannershape-mob {
+        width: 75%;
+        left: unset;
+        right: -33%;
+    }
+    .service-list ul li,
+    .service-list ul li:last-child {
+        margin-bottom: 42px;
+    }
+    .service-list {
+        flex-direction: column;
+        margin-top: 80px;
+        margin-bottom: 14px;
+    }
+    .spacing120 {
+        margin-bottom: 80px;
+    }
+    .why-card:nth-child(even) .card {
+        margin-left: 0;
+    }
+    .why-card:nth-child(odd) .card {
+        margin-right: 0;
+    }
+    .service-page .service-info {
+        font-size: 22px;
+        line-height: 33px;
+    }
+    .number-data-main .total-number p {
+        text-align: center;
+    }
+    .newoffice1 {
+        height: 384px;
+        margin-left: 0;
+        margin-top: 40px;
+        background-position: left;
+    }
+    .lottie-box {
+        flex-direction: column;
+        align-items: start;
+        gap: 0px;
+    }
+    .lottie-box .scrollLottie {
+        width: 172px;
+        min-width: 172px;
+    }
+    .homepage .all-services .pr-20 {
+        padding-right: 0;
+    }
+    .homepage .all-services .pl-20 {
+        padding-left: 0;
+    }
+        .footer-newUI .leftSideUI {
+        flex-direction: row;
+        gap: 28px;
+        margin-right: 0;
+        width: 100%;
+        display: flex;
+    }
+    .footer-newUI .leftSideUI ul:first-child{
+        flex: 30%;
+    }
+    .footer-newUI .leftSideUI ul:last-child{
+        flex: 80%;
+    }
+    .getintouch li:nth-last-child(2){
+        margin-bottom:0px;
+    }
+    .linkedInIcon{
+        float:right;
+    }
+    .footer-newUI .iPadViewAdress  .address .logo img{
+        height:30px;
+    }
+    .footer-newUI.desktopView .largeScreenFooterLogo{
+        display:none;
+    }
+    .footer-newUI.desktopView .leftSideUI h1, .footer-newUI.desktopView .rightSideUI h1 {
+        font-size: 24px;
+    }
+    .blankli {
+        display: block;
+        height: 30px;
+    }
+    .footer-newUI.desktopView .footer-menu {
+        margin-bottom: 40px;
+        display: block;
+    }
+        .footer-newUI .rightSideUI {
+        gap: 0;
+                display: block;
+        margin-top: 40px;
+    }
+    .csr-div .csr-logo {
+   display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+}
+.csr-div .csr-logo img {
+    mix-blend-mode: multiply;
+    width: auto;
+    margin: auto;
+}
+}
+
+@media (max-width: 767px) {
+
+    .footer-newUI.desktopView {
+        padding: 40px 32px;
+    }
+    .footer-newUI.desktopView .footer-menu {
+        margin-bottom: 40px;
+    }
+    .footer-newUI.desktopView .footerColumn {
+        padding: 40px;
+    }
+    .footer-newUI .rightSideUI {
+        display: block;
+    }
+    .footer-newUI.desktopView .copyright,
+    .footer-newUI.desktopView .rightSideUI p,
+    .footer-newUI.desktopView a {
+        FONT-SIZE: 16px;
+        line-height: 24px;
+    }
+    .footer-newUI.desktopView .leftSideUI h1,
+    .footer-newUI.desktopView .rightSideUI h1 {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .footer-newUI.desktopView li {
+        margin-bottom: 12px;
+    }
+    .scrolltotop-new {
+        padding: 15px 12px;
+        height: 56px;
+    }
+    .aboutpage .all-services .service-name br {
+        display: none;
+    }
+    .work-carousel .card-footer {
+        padding: 24px 28px 24px 24px;
+        height: auto;
+    }
+    .work-carousel .card-img-top {
+        padding: 30px 15px 30px 30px;
+    }
+    .career-details-page .accordion-header h3,
+    .carrerForm h3 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .career-details-page .carrerForm {
+        margin-top: 80px;
+    }
+    .who-we-are p,
+    .paragraph-bottom-space p {
+        margin-bottom: 20px;
+    }
+    .office-address {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .our-process-italicTitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .homepage .all-services .service-details .onHoverArrow .ArrowUI,
+    .service-details-new .onHoverArrow .ArrowUI {
+        height: 30px;
+        width: 30px;
+    }
+    .case-studies-new .service-name-new {
+        width: 89%;
+    }
+    /* .testimonials-swiperUI .glide__slide {
+        border: 1px solid #F7941E;
+    } */
+    .testimonials-swiperUI .glide__slide.glide__slide p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 60px;
+    }
+    .testimonials-swiperUI .glide__slide.glide__slide--active h6,
+    .testimonials-swiperUI .glide__slide h6,
+    .testimonials-swiperUI .glide__slide.glide__slide--active small,
+    .testimonials-swiperUI .glide__slide small {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+    .testimonials-swiperUI .glide__slides {
+        align-items: flex-start;
+    }
+    .testimonials-swiperUI .glide--swipeable {
+        margin-top: 110px;
+    }
+    .testimonials-swiperUI .next-prev-btn .glide__arrow {
+        height: 36px;
+        width: 36px;
+    }
+    .testimonials-swiperUI .glide__arrow--next svg,
+    .testimonials-swiperUI .glide__arrow--prev svg {
+        width: 15px;
+    }
+    .testimonials-swiperUI .next-prev-btn {
+        top: -110px;
+    }
+    .testimonials-swiperUI .next-prev-btn .glide__arrow--next {
+        right: 0px;
+    }
+    .testimonials-swiperUI .next-prev-btn .glide__arrow--prev {
+        right: 49px;
+    }
+    /* .testimonials-swiperUI .glide-parentUI {
+        margin: 0 20px;
+    } */
+    .footer-newUI .copyright {
+        padding-bottom: 12px;
+    }
+    .case-studies-new .mobile-lapi-img img {
+        height: 290px;
+        margin-left: -162px;
+        margin-top: 42px;
+    }
+    .case-studies-new .ibs-section .mobile-lapi-img img {
+        height: 282px;
+        margin-left: 0;
+        margin-top: 5px;
+        margin-right: 60px;
+    }
+    .case-studies-new .taj-section .mobile-lapi-img img {
+        height: 301px;
+        margin-left: -119px;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+    .case-studies-new .erp-section .mobile-lapi-img img {
+        height: 325px;
+        margin-left: 0;
+        margin-top: 5px;
+        margin-right: 30px;
+    }
+   
+    .case-studies-new .common-ui .service-details-new {
+        padding: 100px 32px;
+    }
+    .case-studies-new .service-name-new {
+        font-size: 33px;
+        line-height: 40px;
+        margin-top: 12px;
+        margin-bottom: 48px;
+        width: 100%;
+    }
+    .case-studies-new .common-ui h6 {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .case-studies-new .common-ui p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .case-studies-page .tag {
+        font-size: 14px !important;
+        line-height: 20px !important;
+    }
+    .office-address {
+        margin-bottom: 40px;
+    }
+    .features.common-space140 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .feature-list {
+        margin-top: 80px;
+    }
+    .our-process .wow {
+        margin-bottom: 40px;
+    }
+    .career-page .banner-text:not(.career-page .top-section-banner .banner-text) {
+        width: calc(100% - 32px);
+    }
+    /* .contact-page .common-space140.bg-black {
+    padding-top: calc(80px + 90px);
+  } */
+    .text-white1 br {
+        display: none;
+    }
+    .flex-column-sm-reverse {
+        flex-direction: column-reverse;
+    }
+    .case-studies-page .tag-list {
+        margin-bottom: 0;
+    }
+    .case-studies-page .common-space140 .btn-rounded {
+        margin-bottom: 40px;
+    }
+    .skeleton-container {
+        width: 90%;
+        right: unset;
+        bottom: inherit;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 330px;
+        top: 50%;
+    }
+    .services-sec {
+        padding: 120px 32px !important;
+    }
+    .loadingScreen {
+        text-align: center;
+        z-index: 10;
+    }
+    .count {
+        font-size: 100px;
+        left: 0;
+        text-align: center;
+        position: absolute;
+    }
+    .loadingScreen .count {
+        left: 0;
+        text-align: center;
+    }
+    .testimonials .client-name {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .career-page .who-we-are {
+        margin: 0;
+        padding: 120px 32px;
+    }
+    .career-page .who-we-are .title-desc {
+        margin-bottom: 60px;
+    }
+    .career-details-page .who-we-are {
+        margin-top: 0;
+    }
+    .mbm-40 {
+        margin-bottom: 40px;
+    }
+    .case-studies-page .common-space160 .btn-rounded {
+        margin-top: 32px;
+        margin-bottom: 40px;
+    }
+    .service-page .who-we-are {
+        padding: 0 32px;
+        margin-top: 120px;
+    }
+    .app-services-new .col-12 {
+        padding: 0px;
+    }
+    .app-services-new {
+        padding: 0px 20px;
+    }
+    .service-page .app-services-new {
+        row-gap: 0;
+        margin: 66px 0 72px;
+    }
+    .service-page .all-services-newUI .row {
+        padding: 0;
+    }
+    .serviesalltailories .lottie-box .scrollLottie {
+        width: 162px;
+        min-width: 162px;
+        height: 142px !important;
+    }
+    .app-services-new h3 {
+        font-size: 16px;
+        line-height: 20px;
+        padding-top: 20px;
+        padding-bottom: 54px;
+    }
+    .serviesalltailories {
+        padding: 116px 32px !important;
+    }
+    /* .serviesalltailories .col-12{padding:0;} */
+    .service-page .all-services-newUI .service-name {
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 40px !important;
+        margin-bottom: 24px !important;
+    }
+    .testimonials .owl-stage {
+        align-items: flex-start;
+    }
+    /* .service-page .all-services-newUI .row {
+        margin-bottom: 144px;
+    } */
+    .service-page .all-services-newUI .row:last-child {
+        margin-bottom: 0;
+    }
+    .service-page .who-we-are .title-desc,
+    .section-name {
+        margin-bottom: 48px;
+    }
+    .service-page .all-services .row {
+        padding: 30px 0;
+    }
+    .top-section-banner,
+    .case-studies-details .tabletimg,
+    .case-studies-page .tabletimg {
+        height: calc(300px + 90px);
+    }
+    .career-page .top-section-banner {
+        height: calc(400px + 90px);
+    }
+    .service-page .banner-text {
+        /* padding: 0 55px; */
+        top: 60%;
+        max-width: calc(100% - 50px);
+        width: 400px;
+    }
+    .career-page .banner-text {
+        width: calc(100% - 50px);
+    }
+    .top-section-banner h2 {
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 24px;
+    }
+    .top-section-banner p br {
+        display: none;
+    }
+    .top-section-banner p {
+        font-size: 16px;
+        line-height: normal;
+    }
+    .navbar-nav li:last-child a {
+        width: 100%;
+    }
+    footer {
+        padding: 54px 32px 14px 32px;
+    }
+    footer .footer-logo {
+        margin-bottom: 54px;
+    }
+    .footer-menu ul li:last-child {
+        margin-bottom: 16px;
+    }
+    .footer-newUI .leftSideUI {
+        display: block;
+        margin-bottom:40px;
+    }
+    .service-page .app-services-new .mt-30 {
+        margin-top: 0px;
+        padding: 0 !important;
+        text-align: left !important;
+        margin-left: -24px;
+    }
+    .leftSideUI h1 {
+        margin-bottom: 20px !important;
+    }
+    .footer-menu a,
+    footer .getintouch li p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .footer-menu ul li {
+        margin-bottom: 16px;
+    }
+    .getintouch li:nth-child(2) {
+        margin-bottom: 4px;
+    }
+    .footer-newUI .rightSideUI li {
+        margin-bottom: 16px;
+        line-height: 0;
+    }
+    .getintouch li:last-child a {
+        margin-bottom: 4px;
+    }
+    .footer-newUI .rightSideUI p {
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 24px !important;
+    }
+    .footer-newUI .address {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    .foot-link {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+    }
+    .copyright p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .address {
+        padding: 24px 0 0;
+        margin-top: 0;
+    }
+    .copyright {
+        padding-left: 20px;
+    }
+    .getintouch {
+        margin-top: 48px;
+    }
+    .testimonials .content,
+    .address p,
+    .getintouch li a {
+        font-size: 16px;
+        line-height: 28px !important;
+    }
+    .getintouch li a {
+        font-size: 14px;
+        line-height: 20px !important;
+    }
+    .address a {
+        font-size: 24px;
+    }
+    .small-title:not(.homepage .who-we-are .small-title) {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .service-list ul:first-child {
+        margin-right: 0;
+    }
+    .service-list ul li {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .service-list ul li,
+    .service-list ul li:last-child {
+        margin-bottom: 24px;
+    }
+    .service-list,
+    .spacing120 {
+        margin-bottom: 32px;
+    }
+    .service-page .logo-slider {
+        margin-top: 140px;
+    }
+    .testimonials .owl-carousel {
+        margin-top: 80px;
+    }
+    .testimonials .owl-nav {
+        top: -110px;
+    }
+    .testimonials .card {
+        padding: 20px 12px;
+    }
+    .work-carousel .card-footer .Arrow_UI,
+    .office-box .card-footer a {
+        height: 40px;
+        width: 40px;
+        padding: 13px;
+    }
+    .our-work .service-name {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .our-work .service-info {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .work-carousel {
+        margin-top: 160px;
+    }
+    .our-work .owl-nav {
+        top: -100px;
+        right: 18px;
+    }
+    .testimonials .owl-nav {
+        top: -77px;
+        right: 18px;
+    }
+    .testimonials .prev .content,
+    .testimonials .next .content {
+        font-size: 16px;
+        line-height: 24px !important;
+    }
+    .testimonials-home.testimonials .sub-head {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .testimonials .card {
+        padding: 36px;
+        border-radius: 8px;
+    }
+    .testimonials .owl-item .card {
+        border: 0px solid #F7941E !important;
+    }
+    .testimonials .owl-item.active .card {
+        border: 1px solid #F7941E !important;
+    }
+    .footer-newUI .foot-link {
+        gap: 16px;
+    }
+    .testimonials .owl-nav button.owl-next,
+    .testimonials .owl-nav button.owl-prev {
+        height: 48px;
+        width: 48px;
+    }
+    .testimonials-home.testimonials {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom:0;
+    }
+    .testimonials-home .title-desc {
+        padding-bottom: 10px;
+    }
+    .common-space140 {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+    .common-space140 {
+        padding: 120px 32px;
+    }
+    .common-space120 {
+        padding: 60px 16px;
+    }
+    .career-page .banner-text-career {
+        width: calc(100% - 70px) !important;
+    }
+    .serviceimg {
+        margin-bottom: 40px;
+    }
+    .service-page .service-name {
+        margin-top: 80px !important;
+    }
+    .homepage .our-clients.common-space120 {
+        text-align: center;
+        padding-left: initial;
+        padding-right: initial;
+        padding-bottom: 100px;
+        padding-top: 80px;
+    }
+    .testimonials-home.testimonials .container-fluid {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+    }
+    .service-name,
+    .service-page .service-name {
+        font-size: 19px;
+        line-height: 28px;
+        margin-top: 60px;
+    }
+    .tag {
+        font-size: 14px !important;
+        line-height: 20px !important;
+        padding: 4px 16px;
+        height: auto;
+    }
+    .homepage .logo-slider {
+        margin-bottom: 117px !important;
+    }
+    .mb64 {
+        margin-bottom: 40px;
+    }
+    .all-services {
+        margin-top: 80px;
+    }
+    .work-carousel .owl-nav button.owl-next,
+    .work-carousel .owl-nav button.owl-prev {
+        height: 36px;
+        width: 36px;
+    }
+    .work-carousel .owl-prev svg,
+    .work-carousel .owl-next svg {
+        width: 15px;
+    }
+    .work-carousel {
+        margin-top: 100px;
+    }
+    .who-we-are p,
+    .banner-text.banner-text-career p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .jobOpprtunitiesBtn {
+        margin-top: 20px;
+    }
+    .mob-margin {
+        margin-top: 80px;
+        /* margin-bottom: 80px; */
+        width: 100%;
+    }
+    .homepage .who-we-are {
+        padding: 0 32px !important;
+    }
+    .left-div {
+        width: 326px;
+        margin: 0 auto 80px;
+    }
+    .numbers-data {
+        flex-direction: column;
+        padding: 28px 0px;
+        height: 100%;
+        bottom: 0;
+        gap: 0;
+        align-items: center;
+        text-align: center;
+        min-width: calc(100% - 64px);
+    }
+    .homepage .who-we-are {
+        margin-top: 345px;
+    }
+    .number-data-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+    }
+    .numbers-data p,
+    .career-details-page .who-we-are {
+        margin-bottom: 0;
+    }
+    .career-details-page .who-we-are {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .homebanner-btn {
+        margin-bottom: 70px;
+    }
+    .header .menu ul {
+        padding-top: 50px !important;
+    }
+    .numbers-data .total-number:not(:last-child) {
+        margin-bottom: 48px;
+    }
+    .top-section {
+        padding-right: 16px !important;
+        padding-top: 80px !important;
+    }
+    .square-dot {
+        height: 8px;
+        width: 8px;
+    }
+    .top-section h2,
+    .title-desc,
+    .banner-text.banner-text-career h2 {
+        font-size: 34px;
+        line-height: 40px;
+    }
+    #currentOpening .title-desc {
+        margin-bottom: 60px;
+    }
+    .top-section h2 {
+        max-width: 425px;
+        width: auto;
+        font-size: 28px;
+        line-height: 32px;
+        margin-left: 0;
+    }
+    .top-section p:not(.numbers-data p) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 16px;
+        margin-bottom: 52px;
+    }
+    .top-section,
+    .who-we-are,
+    .common-space160,
+    .our-work,
+    .testimonials {
+        padding: 80px 16px;
+    }
+    .our-work {
+        padding: 127px 0px 50px 32px;
+    }
+    .our-work .title-desc {
+        padding-bottom: 0px;
+    }
+    .row.feature-list .zoomIn {
+        margin-bottom: 52px;
+    }
+    .service-details {
+        padding: 32px;
+    }
+    .service-details .scrollLottie,
+    .homepage .removeUnderline .scrollLottie {
+        width: 89px !important;
+        height: 78px !important;
+    }
+    
+    .aboutpage .service-details {
+        width: 40%;
+        justify-content: center;
+    }
+    .aboutpage .all-services {
+        margin-top: 60px;
+    }
+    .aboutpage .card-details .service-info {
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 70px;
+        padding-right: 10px;
+        margin-bottom: 10px;
+    }
+    .auto-width {
+        width: 100%;
+    }
+    .card-details h6 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-left: 32px;
+    }
+    .card-details img {
+        height: 30px;
+    }
+    .aboutpage .card-details>div {
+        padding-left: 36px;
+    }
+    #jobaccordion .accordion-button {
+        font-size: 27px;
+        line-height: 32px;
+    }
+    .executiveteam {
+        padding-top: 120px;
+    }
+    .our-work-div {
+        width: 100%;
+    }
+    .work-carousel .card-footer .Arrow_UI {
+        height: 32px;
+        width: 32px;
+    }
+    .work-carousel .card-footer {
+        padding: 24px 20px 24px 20px;
+        align-items: start;
+    }
+}
+
+@media (max-width: 600px) {
+    .homepage .testimonials .owl-carousel .owl-item {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .aboutpage .service-details {
+        width: 100%;
+        margin-right: 0;
+    }
+    .office-box .card-footer {
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+    }
+    /*Priya 25-March-2025 alignment issue*/
+    .all-services-res .visibletext {
+        padding-bottom: 20px;
+    }
+    .files-wr label {
+        width: 80%;
+    }
+    .carrer-form .files-wr label:after {
+        top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+   .xl-mt-3 {
+        margin-top: 16px;
+    }
+    .container {
+        max-width: 1458px;
+    }
+    .footer-newUI.desktopView .rightSideUI .address.desktopViewAdress p {
+        line-height: 30px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (min-width: 1101px) {
+    .footer-newUI.desktopView .rightSideUI .address.desktopViewAdress p {
+        line-height: 31px;
+        margin-bottom: 22px;
+    }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+    .navbar-nav .nav-link {
+        margin-right: 25px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .office-box .card-footer {
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1551px) {
+    .columnwidth {
+        width: 560px;
+    }
+    .our-process {
+        width: 660px;
+    }
+}
+
+@media (max-width: 621px) {
+    .team .col-6 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .working-at-pi {
+     padding: 120px 32px;
+    }
+    .contact-page .title-desc br {
+        display: none;
+    }
+    .working-at-pi .row>div {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .working-at-pi .row img {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .working-at-pi .row .col-md-3 img {
+        margin-bottom: 0;
+    }
+    .career-details-page .title-desc {
+        font-size: 31px;
+        line-height: 30px;
+    }
+    #jobaccordion .service-list ul li {
+        margin-bottom: 22px;
+    }
+    .working-at-pi .width1,
+    .working-at-pi .width2,
+    .working-at-pi .width3,
+    .working-at-pi .width4 {
+        width: 100%;
+    }
+    .profile-pic {
+        display: none !important;
+    }
+    .newoffice1 {
+        height: 208px;
+        margin-left: 0;
+        margin-top: 40px;
+        background-position: center;
+        width: 100%;
+        border-radius: 15px;
+    }
+    .about-newoffice {
+        height: 338px;
+    }
+    .aboutpage .service-details {
+        padding: 52px 32px 28px 32px;
+    }
+    .aboutpage .all-services .customgap {
+        gap: 32px;
+    }
+    .aboutpage .all-services .service-name {
+        font-size: 19px;
+        line-height: 28px;
+        margin-top: 0;
+    }
+    .app-services-new {
+        margin: 80px 0 70px;
+        row-gap: 40px;
+        border-radius: 8px;
+    }
+    .footer-menu {
+        display: block;
+        margin-bottom: 40px;
+    }
+    .rightSideUI h1 {
+        margin-top: 48px;
+        margin-bottom: 20px;
+    }
+    .footer-newUI .leftSideUI {
+        flex-direction: row;
+        gap: 20px;
+        margin-right: 0;
+        width: 100%;
+    }
+    .footer-newUI .rightSideUI {
+        margin-top: 0;
+    }
+    .getintouch li:last-child a {
+        display: inline-block;
+        width: auto;
+        margin-bottom: 20px;
+        text-decoration: none;
+        border-bottom: 1px solid #AFAFB0;
+    }
+    .footer-newUI .copyright {
+        padding-bottom: 32px;
+        padding-top: 32px;
+    }
+    .scrolltotop.fixed {
+        right: 20px;
+        bottom: 35px;
+    }
+    .footerfixed .scrolltotop{
+           right: 20px;
+        bottom: 35px;
+    }
+    .homepage .all-services .pr-20 {
+        padding-right: 0;
+    }
+    .homepage .all-services .pl-20 {
+        padding-left: 0;
+    }
+    footer .footer-logo button {
+        padding: 15px 12px;
+    }
+    .small-title {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .aboutpage .common-space160 {
+        padding: 120px 32px 100px 32px;
+    }
+    .rooted-info .title-info,
+    .adapting .title-info {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .our-process {
+        margin-top: 60px;
+    }
+    .our-process h4 {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 4px !important;
+    }
+    .career-page .footerTopSpacing {
+        padding-top: 0px;
+    }
+    .career-details-page .accordion-header h3 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    #jobaccordion .service-list ul li {
+        margin-bottom: 24px;
+    }
+    .service-info:not(.our-work .service-info) {
+        font-size: 14px;
+        line-height: 22px;
+        margin-top: 0;
+    }
+    .opening-box .service-name {
+        font-size: 19px;
+        line-height: 28px;
+    }
+    .team {
+        padding-top: 50px;
+    }
+    .team-card img {
+        /* height: 318px; */
+        object-fit: cover;
+    }
+    .team-card .card {
+        margin-bottom: 32px !important;
+    }
+    .team-card:last-child .card {
+        margin-bottom: 0px !important;
+    }
+    .section3 {
+        height: 500px;
+    }
+    .case-studies-new .common-ui {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+    .case-studies-new .mobile-lapi-img {
+        justify-content: start;
+        margin-left: 0;
+    }
+    .case-studies-new .ibs-section .mobile-lapi-img,
+    .case-studies-new .taj-section .mobile-lapi-img,
+    .case-studies-new .erp-section .mobile-lapi-img {
+        justify-content: center;
+    }
+    .testimonials .container-fluid {
+        padding: 0;
+    }
+    .opening-box div {
+        width: 80%;
+    }
+    .opening-box {
+        padding: 32px 32px;
+    }
+    .work-carousel .card {
+        margin-bottom: 0;
+    }
+    .service-details-new .onHoverArrow .ArrowUI {
+        position: absolute;
+        right: -42px;
+        top: -27px;
+        z-index: 9;
+    }
+    .testimonials .owl-item .next .card .client-name,
+    .testimonials .owl-item .prev .card .client-name {
+        color: #f7941e
+    }
+    .career-details-page .service-list ul li {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .career-details-page .accordionArrow{
+        width:30px;
+        height:30px;
+    }
+    .services-sec .service-details{
+        transition:none;
+    }
+    .aboutpage .all-services-newUI .service-details,
+    .service-page .app-services-new .lottie-card {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 100%;
+    }
+    .service-page .app-services-new .lottie-card h3 {
+        padding: 0;
+    }
+    .service-page .app-services-new .lottie-card {
+        padding-bottom: 54px;
+    }
+    .testimonials-swiperUI .glide__slide {
+        height: auto !important;
+    }
+    .career-topSection .backToList {
+        margin-bottom: 30px;
+    }
+    .footer-newUI.desktopView .getintouch li:last-child a{
+        margin-bottom: 0;
+    }
+    .footer-newUI.desktopView .largeScreenFooterLogo {
+    margin-bottom: 0 !important;
+}
+.homepage .all-services .removeUnderline
+{
+    padding:32px;
+}
+  .static-pages{
+        margin-top:78px;
+                padding: 62px 32px 100px;
+    }
+    .static-pages h1{
+        font-size:34px;
+        line-height: 40px;
+        margin-bottom:52px;
+    }
+    .static-content h2, .static-content li, .static-content p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .content-divide{
+        margin-bottom:40px;
+    }
+     .static-content table thead{
+        display:none;
+     }
+        .static-content table,
+    .static-content tbody,
+        .static-content table tbody tr,
+            .static-content table tbody td{
+            display:block;
+            }
+.static-content table tbody tr td{
+    padding:0px !important;
+    border:0 !important;
+}
+  .static-content table tbody tr{
+    padding:20px 16px;
+  }
+  .static-content table tbody tr td:first-child{
+    font-weight: 700;
+    font-size:16px;
+    line-height: 24px;
+    margin-bottom:8px;
+  }
+  .static-content table tbody tr td{
+     font-size:16px;
+    line-height: 24px;
+    font-weight:400;
+    margin-bottom:16px;
+  }
+  .static-content table tbody tr td h6{
+      font-size:16px;
+    line-height: 24px;
+    font-weight:700;
+    margin:0px;
+  }
+    .static-content table tbody tr td:last-child{
+            margin-bottom:0;
+    }
+    .blankli{
+        display:none;
+    }
+
+    .getintouch li:first-child{
+        margin-bottom:0 !important;
+    }
+     .getintouch li{
+        margin-bottom:12px !important;
+    }
+       .getintouch li:nth-last-child(2){
+        margin-bottom:0 !important;
+       }
+    .footer-newUI .rightSideUI {
+        margin-bottom: 10px !important;
+    }
+   .footer-menu .leftSideUI ul li:last-child{
+    margin-bottom:12px;
+    }
+    .static-content li::after{
+            top: 11px;
+    }
+    .csr-div .csr-logo {
+       display: flex;
+        gap: 40px;
+        align-items: start;
+        justify-content: start;
+        text-align: left;
+        flex-direction: column;
+    }
+    .csr-div .csr-logo img {
+        mix-blend-mode: multiply;
+        width: auto;
+        margin: inherit;
+    }
+    .pdf-content a{
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1280px) {
+    .homebanner-btn {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .clientsServedUI {
+        display: block;
+    }
+    .clientsServedLogos {
+        width: 100%;
+    }
+    .clientsServedUI .view-case-study {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 431px) {
+     .copyright p span {
+        position: absolute;
+        left: -24px;
+        top: 11px;
+        font-size: 20px;
+    }
+    .footer-newUI.desktopView .copyright p {
+        margin-left: 24px !important;
+    }
+}
+
+@media (max-width: 370px) {
+    .top-section h2 {
+        font-size: 27px;
+    }
+    .title-desc,
+    .banner-text.banner-text-career h2 {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

@@ -1,0 +1,110 @@
+.office-box .card-footer .ofc-name {
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.office-box .ofc-location {
+    font-size: 19px;
+    line-height: 28px;
+}
+
+.direction span {
+    font-size: 21px;
+    line-height: 16px;
+}
+
+.office-hidden {
+    visibility: hidden;
+    /* keeps layout space reserved */
+}
+
+.iFrame-contact iframe {
+    height: 380px;
+    width: 100%;
+    border-top-left-radius: 12px;
+    margin-bottom: -7px;
+    border-top-right-radius: 12px;
+}
+
+@media only screen and (max-width:1500px) {
+    .office-box .card-footer .ofc-name {
+        font-size: 25px;
+        line-height: 25px;
+    }
+    .office-box .ofc-location {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .direction span {
+        font-size: 21px;
+        line-height: 14px;
+    }
+    .contact-page .service-name br {
+        display: none;
+    }
+    .office-img {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .office-box .card-footer {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .iFrame-contact iframe {
+        height: 240px;
+    }
+    .common-space140 {
+        margin-top: 90px;
+    }
+    .office-box {
+        margin-right: 0;
+    }
+    .common-space140 .mb-4 {
+        margin-bottom: 0 !important;
+    }
+    .contact-page .common-space140.bg-black {
+        margin-top: 0px !important;
+    }
+    .contact-page .common-space140.bg-black {
+        padding-top: 120px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .bg-black .title-desc br {
+        display: none;
+    }
+    .bg-black .title-desc {
+        margin-bottom: 50px;
+    }
+    .contact-wrapper {
+        padding: 0 32px;
+        margin: 0px;
+        margin-top: 200px;
+        margin-bottom: 120px;
+    }
+    .contact-wrapper .title-desc {
+        padding-bottom: 60px;
+    }
+    .contact-page .office-address {
+        margin-bottom: 40px !important;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .office-box .card-footer {
+        padding: 24px 28px 24px 24px;
+        height: auto;
+    }
+    .contact-page .service-name {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 10px !important;
+        margin-bottom: 40px;
+    }
+}

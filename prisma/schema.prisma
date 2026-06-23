@@ -1,0 +1,536 @@
+// Pi Techniques CMS — Prisma schema (Phase 2)
+// PostgreSQL. To switch to MySQL later: change `provider` to "mysql" and replace
+// `String[]` array fields with a join table or JSON (MySQL has no native arrays).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+enum ContactStatus {
+  UNREAD
+  READ
+  ARCHIVED
+}
+
+enum ContactSource {
+  CONTACT
+  CAREER
+}
+
+enum ActivityAction {
+  CREATE
+  UPDATE
+  DELETE
+  PUBLISH
+  LOGIN
+  LOGOUT
+}
+
+// ---------------------------------------------------------------------------
+// Auth & audit
+// ---------------------------------------------------------------------------
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String
+  passwordHash String
+  role         Role      @default(EDITOR)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  sessions     Session[]
+  activityLogs ActivityLog[]
+  media        Media[]
+
+  @@index([role])
+  @@map("users")
+}
+
+model Session {
+  id               String    @id @default(cuid())
+  userId           String
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshTokenHash String    @unique
+  userAgent        String?
+  ipAddress        String?
+  expiresAt        DateTime
+  revokedAt        DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model ActivityLog {
+  id         String         @id @default(cuid())
+  userId     String?
+  user       User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     ActivityAction
+  entityType String
+  entityId   String?
+  summary    String
+  metadata   Json?
+  createdAt  DateTime       @default(now())
+
+  @@index([createdAt])
+  @@index([userId])
+  @@map("activity_logs")
+}
+
+// ---------------------------------------------------------------------------
+// Media library
+// ---------------------------------------------------------------------------
+model Media {
+  id           String   @id @default(cuid())
+  filename     String   @unique
+  originalName String
+  url          String
+  mimeType     String
+  sizeBytes    Int
+  width        Int?
+  height       Int?
+  alt          String?
+  uploadedById String?
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@map("media")
+}
+
+// ---------------------------------------------------------------------------
+// Content: Services
+// ---------------------------------------------------------------------------
+model Service {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  anchor      String
+  title       String
+  description String   @db.Text
+  iconDark    String // home-lottie icon (homepage cards + services detail rows)
+  iconLight   String // services-lottie icon (services top grid)
+  tags        String[]
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([published])
+  @@map("services")
+}
+
+// ---------------------------------------------------------------------------
+// Content: Case studies (+ normalized children)
+// ---------------------------------------------------------------------------
+model CaseStudy {
+  id        String  @id @default(cuid())
+  slug      String  @unique
+  order     Int     @default(0)
+  published Boolean @default(true)
+
+  // top section
+  name          String
+  title         String
+  shortDesc     String   @db.Text
+  tags          String[]
+  heroImage     String
+  logo          String
+  galleryImages String[]
+
+  // Homepage "Our work" carousel card + /case-studies list card (differ from heroImage)
+  cardImage       String @default("")
+  cardImageMobile String @default("")
+  cardClient      String @default("")
+  listImage       String @default("")
+  listHeading     String @default("")
+
+  // project info
+  industry     String
+  headquarters String
+  website      String?
+
+  // challenge
+  challengeShortInfo  String   @db.Text
+  challengeLists      String[]
+  challengeBackground String   @db.Text
+
+  // pi solution / impact
+  solutionDetails     String @db.Text
+  longTermImpactTitle String @db.Text
+
+  // feature-grid CSS variant: "" | "taj-features" | "citius-features"
+  featureGridVariant String @default("")
+
+  // SEO (inline)
+  seoTitle       String?
+  seoDescription String? @db.Text
+  ogImage        String?
+
+  solutions CaseStudySolution[]
+  features  CaseStudyFeature[]
+  impacts   CaseStudyImpact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@index([published])
+  @@map("case_studies")
+}
+
+model CaseStudySolution {
+  id          String    @id @default(cuid())
+  caseStudyId String
+  caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id], onDelete: Cascade)
+  title       String
+  subTitle    String
+  items       String[]
+  order       Int       @default(0)
+
+  @@index([caseStudyId])
+  @@map("case_study_solutions")
+}
+
+model CaseStudyFeature {
+  id          String    @id @default(cuid())
+  caseStudyId String
+  caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id], onDelete: Cascade)
+  image       String
+  feature     String
+  order       Int       @default(0)
+
+  @@index([caseStudyId])
+  @@map("case_study_features")
+}
+
+model CaseStudyImpact {
+  id          String    @id @default(cuid())
+  caseStudyId String
+  caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id], onDelete: Cascade)
+  image       String
+  title       String
+  subTitle    String    @db.Text
+  order       Int       @default(0)
+
+  @@index([caseStudyId])
+  @@map("case_study_impacts")
+}
+
+// ---------------------------------------------------------------------------
+// Content: Testimonials & Clients
+// ---------------------------------------------------------------------------
+model Testimonial {
+  id          String   @id @default(cuid())
+  quote       String   @db.Text
+  authorName  String // attribution / person name
+  designation String // role
+  company     String // company / heading
+  photo       String?
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([published])
+  @@map("testimonials")
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  name      String
+  logo      String
+  width     Int?
+  height    Int?
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@index([published])
+  @@map("clients")
+}
+
+// ---------------------------------------------------------------------------
+// Contact submissions
+// ---------------------------------------------------------------------------
+model ContactSubmission {
+  id        String        @id @default(cuid())
+  source    ContactSource @default(CONTACT)
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  message   String?       @db.Text
+  position  String? // for career applications
+  resumeUrl String? // uploaded CV/resume (career applications)
+  status    ContactStatus @default(UNREAD)
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime      @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_submissions")
+}
+
+// ---------------------------------------------------------------------------
+// SEO & site-wide settings
+// ---------------------------------------------------------------------------
+model SeoSetting {
+  id                 String   @id @default(cuid())
+  path               String   @unique // e.g. "/", "/about", "/services"
+  metaTitle          String
+  metaDescription    String   @db.Text
+  canonicalUrl       String?
+  ogTitle            String?
+  ogDescription      String?  @db.Text
+  ogImage            String?
+  twitterTitle       String?
+  twitterDescription String?  @db.Text
+  twitterImage       String?
+  updatedAt          DateTime @updatedAt
+
+  @@map("seo_settings")
+}
+
+// Singleton (id is always 1): contact info + footer content.
+model SiteSetting {
+  id           Int      @id @default(1)
+  companyEmail String
+  companyPhone String
+  addressLines String[]
+  linkedinUrl  String?
+  footerNote   String?
+  updatedAt    DateTime @updatedAt
+
+  @@map("site_settings")
+}
+
+// Singleton (id is always "home"): homepage editable copy + stats.
+model HomeContent {
+  id           String @id @default("home")
+  heroTitle    String @db.Text
+  heroSubtitle String @db.Text
+  heroCtaLabel String
+  heroCtaHref  String
+
+  // Banner management (Banner/Hero module)
+  heroCtaNewTab    Boolean @default(false)
+  bannerImage      String? // optional bg image; hero uses the p5 canvas when unset
+  bannerVideo      String? // optional bg video URL
+  bannerAlt        String? // SEO alt text for the banner image
+  bannerImageTitle String? // SEO image title
+  showBanner       Boolean @default(true)
+  showStats        Boolean @default(true)
+
+  whoEyebrow    String
+  whoTitle      String
+  whoParagraphs String[]
+  whoCtaLabel   String
+  whoCtaHref    String
+  aboutImage    String? // About section image (defaults to /images/newoffice1.jpg)
+
+  statClients    Int
+  statProjects   Int
+  statIndustries Int
+
+  servicesEyebrow     String
+  servicesTitle       String
+  workEyebrow         String
+  workTitle           String
+  clientsEyebrow      String
+  clientsTitle        String
+  testimonialsEyebrow String
+  testimonialsTitle   String
+
+  updatedAt DateTime @updatedAt
+
+  @@map("home_content")
+}
+
+// Published snapshot of the homepage-owned sections (banner + stats + about).
+// Editors write to the live tables (the DRAFT); publishing copies them here, and
+// the public homepage reads from this snapshot. Enables draft → preview → publish.
+model HomepageSnapshot {
+  id        String   @id @default("published")
+  data      Json
+  updatedAt DateTime @updatedAt
+
+  @@map("homepage_snapshots")
+}
+
+// Banner statistics counters (homepage hero) — dynamic add/edit/delete/reorder.
+model HomeStat {
+  id        String   @id @default(cuid())
+  value     Int
+  label     String
+  suffix    String   @default("+")
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("home_stats")
+}
+
+// Flexible per-page copy (hero text, section intros) keyed by a string key,
+// e.g. "services.hero", "about.intro". Strongly-typed entities use their own
+// tables above; this covers misc page-level text without schema churn.
+model PageContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  updatedAt DateTime @updatedAt
+
+  @@map("page_content")
+}
+
+// ---------------------------------------------------------------------------
+// Dynamic pages + sections (content builder)
+// ---------------------------------------------------------------------------
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Page {
+  id             String     @id @default(cuid())
+  slug           String     @unique
+  title          String
+  status         PageStatus @default(DRAFT)
+  seoTitle       String?
+  seoDescription String?    @db.Text
+  sections       Section[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@index([status])
+  @@map("pages")
+}
+
+model Section {
+  id        String   @id @default(cuid())
+  pageId    String
+  page      Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  type      String // hero | richText | cta | ...
+  title     String?
+  content   Json
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId])
+  @@map("sections")
+}
+
+// ---------------------------------------------------------------------------
+// FAQs, Team members, Navigation
+// ---------------------------------------------------------------------------
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String?
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("faqs")
+}
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  name        String
+  role        String
+  photo       String?
+  photoMobile String? // when set, `photo` is the desktop image and this is the mobile one
+  colSpan     Int      @default(4) // xl column span: 4 (standard) | 6 (half) | 12 (full)
+  cardMb0     Boolean  @default(false) // drop the card's bottom margin (last row in a group)
+  linkedin    String?
+  group       String   @default("leadership") // leadership | executive
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@map("team_members")
+}
+
+enum NavLocation {
+  HEADER
+  FOOTER
+}
+
+model NavItem {
+  id        String      @id @default(cuid())
+  label     String
+  href      String
+  location  NavLocation @default(HEADER)
+  order     Int         @default(0)
+  published Boolean     @default(true)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([location, order])
+  @@map("nav_items")
+}
+
+// ---------------------------------------------------------------------------
+// Career opportunities (job openings)
+// ---------------------------------------------------------------------------
+enum JobStatus {
+  ACTIVE
+  INACTIVE
+}
+
+model Job {
+  id               String    @id @default(cuid())
+  jobTitle         String
+  slug             String    @unique
+  jobCode          String? // original "jobcode" (e.g. PI023)
+  department       String?
+  experience       String // e.g. "0 - 4 YRS OF EXPERIENCE"
+  location         String?
+  employmentType   String?
+  shortDescription String?   @db.Text
+  qualifications   String[]
+  // Either string[] (flat) or { kind:"flat"|"grouped", ... } — see content reader.
+  responsibilities Json?
+  skills           String[] // "Good to have"
+  seoTitle         String?
+  seoDescription   String?   @db.Text
+  status           JobStatus @default(ACTIVE)
+  displayOrder     Int       @default(0)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([status])
+  @@index([displayOrder])
+  @@map("jobs")
+}

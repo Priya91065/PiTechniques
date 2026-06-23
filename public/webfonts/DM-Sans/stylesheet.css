@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Bold.eot');
+    src: url('DMSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('DMSans-Bold.woff2') format('woff2'),
+        url('DMSans-Bold.woff') format('woff'),
+        url('DMSans-Bold.ttf') format('truetype'),
+        url('DMSans-Bold.svg#DMSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

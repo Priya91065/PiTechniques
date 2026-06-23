@@ -1,0 +1,182 @@
+
+> pi-techniques@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.19
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.31.39:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 24.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 6.8s (555 modules)
+ GET / 200 in 15156ms
+ GET / 200 in 145ms
+ ✓ Compiled /case-studies in 405ms (568 modules)
+ GET /case-studies 200 in 752ms
+ ✓ Compiled /detailed-project in 301ms (574 modules)
+ GET /detailed-project?project=chanakya 200 in 3542ms
+ GET / 200 in 158ms
+ GET /case-studies 200 in 130ms
+ GET /detailed-project?project=ibs 200 in 1687ms
+ GET /case-studies 200 in 120ms
+ GET / 200 in 141ms
+ GET /case-studies 200 in 139ms
+ ✓ Compiled /about in 276ms (577 modules)
+ GET /about 200 in 626ms
+ ✓ Compiled /services in 275ms (579 modules)
+ GET /services 200 in 645ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 2.6s (197 modules)
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 14.3s (1591 modules)
+ GET /admin/login?next=%2Fadmin%2Ffaqs 200 in 17573ms
+ ○ Compiling /api/admin/auth/login ...
+ ✓ Compiled /api/admin/auth/login in 3.7s (1668 modules)
+ POST /api/admin/auth/login 200 in 8117ms
+ ○ Compiling /admin/faqs ...
+ ✓ Compiled /admin/faqs in 5.9s (2027 modules)
+ GET /admin/faqs 200 in 6568ms
+ GET /admin/faqs 200 in 250ms
+ ○ Compiling /admin/team ...
+ ✓ Compiled /admin/team in 1374ms (2029 modules)
+ GET /admin/team 200 in 1721ms
+ GET /admin/team 200 in 101ms
+ ○ Compiling /admin/testimonials ...
+ ✓ Compiled /admin/testimonials in 3.5s (2106 modules)
+ GET /admin/testimonials 200 in 3896ms
+ ○ Compiling /api/admin/testimonials ...
+ ✓ Compiled /api/admin/testimonials in 1650ms (2120 modules)
+ GET /api/admin/testimonials 200 in 2966ms
+ GET /api/admin/testimonials 200 in 367ms
+ ○ Compiling /admin/navigation ...
+ ✓ Compiled /admin/navigation in 1598ms (2122 modules)
+ GET /admin/navigation 200 in 1971ms
+ ○ Compiling /admin/clients ...
+ ✓ Compiled /admin/clients in 2.5s (2130 modules)
+ GET /admin/clients 200 in 2825ms
+ ○ Compiling /api/admin/clients ...
+ ✓ Compiled /api/admin/clients in 2.1s (2134 modules)
+ GET /api/admin/clients 200 in 3075ms
+ GET /api/admin/clients 200 in 445ms
+ ○ Compiling /admin/contact ...
+ ✓ Compiled /admin/contact in 2.2s (2136 modules)
+ GET /admin/contact 200 in 2418ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 5.5s (2130 modules)
+ GET /admin/settings 200 in 5775ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 5.8s (2156 modules)
+ GET /admin 200 in 8968ms
+ GET /admin/navigation 200 in 162ms
+ GET /admin/faqs 200 in 120ms
+ GET /admin/team 200 in 196ms
+ GET /admin/testimonials 200 in 169ms
+ GET /api/admin/testimonials 200 in 1046ms
+ GET /api/admin/testimonials 200 in 436ms
+ ○ Compiling /admin/case-studies ...
+ ✓ Compiled /admin/case-studies in 11s (2162 modules)
+ GET /admin/case-studies 200 in 11483ms
+ GET /admin/case-studies 200 in 112ms
+ GET /admin/case-studies 200 in 183ms
+ GET /admin/case-studies 200 in 256ms
+ GET /admin/case-studies 200 in 136ms
+ ○ Compiling /api/admin/case-studies ...
+ ✓ Compiled /api/admin/case-studies in 3.4s (2167 modules)
+ GET /api/admin/case-studies 200 in 6284ms
+ GET /api/admin/case-studies 200 in 1172ms
+ ○ Compiling /admin/services ...
+ ✓ Compiled /admin/services in 2.1s (2175 modules)
+ GET /admin/services 200 in 2384ms
+ ○ Compiling /api/admin/services ...
+ ✓ Compiled /api/admin/services in 2.1s (2179 modules)
+ GET /api/admin/services 200 in 2985ms
+ GET /api/admin/services 200 in 342ms
+ ○ Compiling /admin/pages ...
+ ✓ Compiled /admin/pages in 5.4s (2217 modules)
+ GET /admin/pages 200 in 5704ms
+ ✓ Compiled in 899ms (2414 modules)
+ GET /admin/pages 200 in 241ms
+ GET /admin/pages 200 in 148ms
+ GET /admin/pages 200 in 478ms
+ ✓ Compiled in 4.5s (2414 modules)
+ GET /admin/pages 200 in 4628ms
+ GET /admin/pages 200 in 117ms
+ GET /admin/pages 200 in 929ms
+ ✓ Compiled in 3.8s (2414 modules)
+ GET /admin/pages 200 in 2988ms
+ GET /admin/pages 200 in 110ms
+ ○ Compiling /api/admin/pages ...
+ ✓ Compiled /api/admin/pages in 4s (2212 modules)
+ GET /api/admin/pages?search=&page=1&pageSize=10&sort=updatedAt&order=desc 200 in 6271ms
+ POST /api/admin/pages 201 in 1500ms
+ GET /api/admin/pages?search=&page=1&pageSize=10&sort=updatedAt&order=desc 200 in 1119ms
+ ○ Compiling /api/admin/pages/[id] ...
+ ✓ Compiled /api/admin/pages/[id] in 2.3s (2197 modules)
+ PATCH /api/admin/pages/cmqi6s9pe0004fiuoilfmpd8m 200 in 7326ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1024ms (1285 modules)
+ ○ Compiling /_not-found ...
+ GET / 200 in 3825ms
+ ✓ Compiled /_not-found in 2.9s (2222 modules)
+ GET /test 404 in 3437ms
+ PATCH /api/admin/pages/cmqi6s9pe0004fiuoilfmpd8m 200 in 1307ms
+ ○ Compiling /admin/media ...
+ ✓ Compiled /admin/media in 8.4s (2246 modules)
+ GET /admin/media 200 in 8836ms
+ ○ Compiling /api/admin/media ...
+ ✓ Compiled /api/admin/media in 1425ms (2252 modules)
+ GET /api/admin/media?search= 200 in 8344ms
+ POST /api/admin/media 201 in 1788ms
+ ✓ Compiled in 2.2s (1263 modules)
+ ○ Compiling /api/admin/media/[id] ...
+ ✓ Compiled /api/admin/media/[id] in 4s (2207 modules)
+ DELETE /api/admin/media/cmqi6v7zz000cfiuoa1j2pxgl 200 in 8099ms
+ DELETE /api/admin/media/cmqi6v7zz000cfiuoa1j2pxgl 404 in 3340ms
+ ○ Compiling /admin/team ...
+ ✓ Compiled /admin/team in 3.7s (1273 modules)
+ GET /admin/team 200 in 4444ms
+ GET /admin/team 200 in 122ms
+ ○ Compiling /admin/navigation ...
+ ✓ Compiled /admin/navigation in 9.7s (2225 modules)
+ ○ Compiling /_not-found ...
+ GET /admin/navigation 200 in 10463ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled /_not-found in 5.3s (2230 modules)
+ GET /test 404 in 8485ms
+ GET /admin/navigation 200 in 7234ms
+ GET /test 404 in 191ms
+ GET /admin/team 200 in 7133ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1255ms (1243 modules)
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 1815ms (2199 modules)
+ GET /test 404 in 2469ms
+ GET /admin/login?next=%2Fadmin%2Fteam 200 in 2404ms
+ GET /test 404 in 113ms
+ GET / 200 in 4481ms
+ GET / 200 in 171ms
+ POST /api/auth/login 404 in 59ms
+ GET / 200 in 213ms
+ GET / 200 in 138ms
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+prisma:error Error in PostgreSQL connection: Error { kind: Db, cause: Some(DbError { severity: "FATAL", parsed_severity: Some(Fatal), code: SqlState(E57P01), message: "terminating connection due to administrator command", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("postgres.c"), line: Some(3357), routine: Some("ProcessInterrupts") }) }
+ ○ Compiling /api/admin/auth/login ...
+ ✓ Compiled /api/admin/auth/login in 1293ms (1246 modules)
+ POST /api/admin/auth/login 200 in 7627ms
+ ○ Compiling /api/admin/navigation ...
+ ✓ Compiled /api/admin/navigation in 523ms (2205 modules)
+ POST /api/admin/navigation 201 in 6321ms
+ ○ Compiling / ...
+ ✓ Compiled / in 567ms (1281 modules)
+ GET / 200 in 4394ms
+ ✓ Compiled /api/admin/navigation/[id] in 508ms (2228 modules)
+ DELETE /api/admin/navigation/cmqi7cger000lfiuoirgaf638 200 in 2672ms
+ GET / 200 in 1353ms
