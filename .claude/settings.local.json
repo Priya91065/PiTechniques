@@ -85,7 +85,10 @@
       "Bash(git check-ignore *)",
       "Bash(git add *)",
       "Bash(gh pr create --base main --head chore/claude-local-permissions --title 'chore\\(claude\\): add local permission entries from env setup' --body ' *)",
-      "PowerShell($p = Get-Command gh -ErrorAction SilentlyContinue; if \\($p\\) { $p.Source } else { \"gh not installed\" }; Test-Path \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\")"
+      "PowerShell($p = Get-Command gh -ErrorAction SilentlyContinue; if \\($p\\) { $p.Source } else { \"gh not installed\" }; Test-Path \"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\")",
+      "Bash(NEXT_PUBLIC_SITE_URL=\"\" npx next build)",
+      "Bash(git ls-tree *)",
+      "Bash(git commit -q -m ' *)"
     ]
   }
 }
