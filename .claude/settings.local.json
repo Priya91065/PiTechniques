@@ -77,7 +77,10 @@
       "Bash(grep -E \"EXIT=|/admin/homepage|○ /$|ƒ /$|error|warn|Error\" \"C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\9fe2f042-9ef1-4533-a6ef-bed4456e9b91\\\\tasks\\\\bhd17956i.output\")",
       "Bash(grep -E \"^\\\\S* \\(○|ƒ\\) /\\\\s\" /tmp/build-out.txt)",
       "Bash(cd \"P:/PI_Tech/AI/Claude AI/files/pi-techniques/pi-techniques\" && until grep -qE \"EXIT=\" \"C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\9fe2f042-9ef1-4533-a6ef-bed4456e9b91\\\\tasks\\\\bpa2y3rvb.output\" 2>/dev/null; do sleep 5; done; grep -E \"EXIT=\" \"C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\9fe2f042-9ef1-4533-a6ef-bed4456e9b91\\\\tasks\\\\bpa2y3rvb.output\"; echo \"---- prisma steps ----\"; grep -iE \"migrat|already in sync|No pending|Generated Prisma|Compiled successfully|Applying migration\" /tmp/build3.txt | head)",
-      "Bash(git fetch *)"
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
