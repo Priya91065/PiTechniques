@@ -94,7 +94,12 @@
       "Bash(curl -s -L \"https://www.omaagna.org/wp-content/themes/pitheme/css/common.css\")",
       "Bash(git reset *)",
       "Bash(git cherry-pick *)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(curl -s -m 15 -D - -o /dev/null __TRACKED_VAR__/admin/login)",
+      "Bash(curl -s -o /dev/null -m 3 \"http://localhost:3123/admin/login\")",
+      "Bash(break)",
+      "Bash(curl -s -m 25 -w '\\\\nHTTP %{http_code}\\\\n' -X POST http://localhost:3123/api/admin/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"admin@pitechniques.com\",\"password\":\"ChangeMe!2025\"}')",
+      "Read(//tmp/**)"
     ]
   }
 }
