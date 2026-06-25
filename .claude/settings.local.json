@@ -99,7 +99,8 @@
       "Bash(curl -s -o /dev/null -m 3 \"http://localhost:3123/admin/login\")",
       "Bash(break)",
       "Bash(curl -s -m 25 -w '\\\\nHTTP %{http_code}\\\\n' -X POST http://localhost:3123/api/admin/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"admin@pitechniques.com\",\"password\":\"ChangeMe!2025\"}')",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(curl -s -m 15 \"http://localhost:3000/css/style.min.css\")"
     ]
   }
 }
