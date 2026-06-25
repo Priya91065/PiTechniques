@@ -3710,3 +3710,27 @@ margin-right: 0px !important;
     height:500px;
     background:#1B1B1B;
 }
+
+/* Homepage "Dive into our case studies" carousel.
+   matchHeight() gives each .card a fixed pixel height, which makes the shared
+   `.card-footer { height: 100% }` rule stretch the footer to the full card
+   height. Stacked below the image inside the static <a.div-clickable>, the
+   footer overflows the card and the client name (.service-info, pushed to the
+   bottom by `margin-top: auto`) renders below the visible card and disappears.
+   Lay the clickable wrapper out as a flex column so the image fills the
+   remaining space and the footer hugs its content at the bottom. Scoped to
+   .work-carousel-new so other carousels/.office-box are untouched. */
+.work-carousel-new .div-clickable {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.work-carousel-new .div-clickable .card-img-top {
+    flex: 1 1 auto;
+    min-height: 0;
+    object-fit: cover;
+}
+.work-carousel-new .div-clickable .card-footer {
+    flex: 0 0 auto;
+    height: auto;
+}
