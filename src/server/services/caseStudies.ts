@@ -44,7 +44,11 @@ function topFields(data: Partial<CaseStudyInput>): Prisma.CaseStudyUpdateInput {
     ...(data.featureGridVariant !== undefined ? { featureGridVariant: data.featureGridVariant } : {}),
     ...(data.seoTitle !== undefined ? { seoTitle: data.seoTitle ?? null } : {}),
     ...(data.seoDescription !== undefined ? { seoDescription: data.seoDescription ?? null } : {}),
+    ...(data.seoKeywords !== undefined ? { seoKeywords: data.seoKeywords ?? null } : {}),
+    ...(data.canonicalUrl !== undefined ? { canonicalUrl: data.canonicalUrl ?? null } : {}),
     ...(data.ogImage !== undefined ? { ogImage: data.ogImage ?? null } : {}),
+    ...(data.twitterImage !== undefined ? { twitterImage: data.twitterImage ?? null } : {}),
+    ...(data.robotsMeta !== undefined ? { robotsMeta: data.robotsMeta ?? null } : {}),
     ...(data.published !== undefined ? { published: data.published } : {}),
   };
 }
@@ -77,7 +81,11 @@ export async function createCaseStudy(data: CaseStudyInput): Promise<CaseStudyWi
       featureGridVariant: data.featureGridVariant,
       seoTitle: data.seoTitle ?? null,
       seoDescription: data.seoDescription ?? null,
+      seoKeywords: data.seoKeywords ?? null,
+      canonicalUrl: data.canonicalUrl ?? null,
       ogImage: data.ogImage ?? null,
+      twitterImage: data.twitterImage ?? null,
+      robotsMeta: data.robotsMeta ?? null,
       published: data.published ?? true,
       order: (max._max.order ?? -1) + 1,
       solutions: { create: data.solutions.map((s, i) => ({ title: s.title, subTitle: s.subTitle, items: s.items, order: i })) },

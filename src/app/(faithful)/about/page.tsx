@@ -5,6 +5,7 @@ import BodyClass from "@/components/home/BodyClass";
 import PageScripts from "@/components/home/PageScripts";
 import { industries, type TeamMember } from "@/constants/aboutTeam";
 import { getTeamGroups } from "@/server/content/team";
+import { getPublishedAboutPage } from "@/server/content/aboutPage";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,6 +21,25 @@ img.omnichannel{ height: 110px !important; object-fit: contain; object-position:
   img.lotties{ width: 89px !important; height: 78px !important; }
   img.omnichannel{ height: 78px !important; }
 }`;
+
+/** Original per-step wow.js stagger delays, preserved exactly when rendering dynamic steps. */
+const STEP_WOW_DELAYS = ["0.1s", "0.3s", "0.5s", "0.7s", "0.8s", "0.8s"];
+
+/** Faithfully highlights "Agile Project Management." in orange, matching the original hardcoded markup. */
+function withAgileHighlight(text: string): JSX.Element {
+  const marker = "Agile Project Management.";
+  const idx = text.indexOf(marker);
+  if (idx === -1) return <>{text}</>;
+  const before = text.slice(0, idx);
+  const after = text.slice(idx + marker.length);
+  return (
+    <>
+      {before}
+      <span className="text-orange">{marker}</span>
+      {after}
+    </>
+  );
+}
 
 /** Renders a line of text where "\n" becomes a <br/> (faithful to the markup). */
 function withBreaks(text: string): JSX.Element {
@@ -76,6 +96,7 @@ function TeamCard({ m }: { m: TeamMember }): JSX.Element {
 
 export default async function AboutPage(): Promise<JSX.Element> {
   const { leaders, executives } = await getTeamGroups();
+  const about = await getPublishedAboutPage();
   return (
     <>
       <BodyClass name="aboutpage" />
@@ -87,9 +108,10 @@ export default async function AboutPage(): Promise<JSX.Element> {
             <div className="d-flex align-items-center" style={{ height: "100%" }}>
               <div className="left-div wow fadeIn bottom-placement" data-wow-duration="1s" data-wow-delay="0.1s">
                 <h2>
-                  We keep it precise and <br /> simple<span className="square-dot"></span>
+                  {withBreaks(about.bannerTitle)}
+                  <span className="square-dot"></span>
                 </h2>
-                <p className="banner-subtitle">Three decades of building with care and clarity.</p>
+                {about.bannerSubtitle && <p className="banner-subtitle">{about.bannerSubtitle}</p>}
               </div>
               <div id="canvas-container"></div>
             </div>
@@ -102,29 +124,16 @@ export default async function AboutPage(): Promise<JSX.Element> {
               <div className="col-12 col-lg-5 col-xl-5 offset-xl-2 wow fadeInLeft" data-wow-duration="2s">
                 <div className="section-name">
                   <h4 className=" small-title">
-                    ABOUT US<span className="square-dot-small"></span>
+                    {about.introEyebrow}
+                    <span className="square-dot-small"></span>
                   </h4>
-                  <h3 className="title-desc">
-                    Rooted in experience.<br />
-                    Driven by innovation.
-                  </h3>
+                  <h3 className="title-desc">{withBreaks(about.introTitle)}</h3>
                 </div>
-                <p className="title-info">
-                  At Pi Techniques, we've been solving problems with tech since 1992. Beginning as a small support firm
-                  for individuals and home offices, and growing into a trusted, full-spectrum technology partner for
-                  modern businesses.
-                </p>
-                <p className="title-info">
-                  Over the years, we’ve expanded into software development, web technologies, and IT infrastructure
-                  services. We have been delivering solutions that are tailored, reliable, and future-ready. Many of our
-                  clients have been with us for decades, a testament to our clear, simple, and client-first approach. No
-                  jargon, just measurable results.
-                </p>
-                <p className="title-info mb-0">
-                  Backed by decades of experience, we create technology shaped around your business needs — reliable,
-                  scalable, and future-ready. Solutions that help grow with your business and keep pace with a
-                  fast-moving tech world.
-                </p>
+                {about.introParagraphs.map((p, i, arr) => (
+                  <p key={i} className={`title-info${i === arr.length - 1 ? " mb-0" : ""}`}>
+                    {p}
+                  </p>
+                ))}
               </div>
               <div className="col-12 col-lg-6 col-xl-4 offset-xl-0 wow fadeInRight p-0" data-wow-duration="2s ">
                 <div className="about-newoffice"></div>
@@ -172,80 +181,41 @@ export default async function AboutPage(): Promise<JSX.Element> {
           </div>
         </section>
 
-        <section className="common-space160 adapting grey-section">
-          <div className="container-fluid p-0">
-            <div className="row justify-content-between g-0">
-              <div
-                className="col-12 col-md-12 col-xl-3 col-xxl-3 offset-xl-2 offset-xxl-2 wow fadeInLeft"
-                data-wow-duration="1.5s"
-                data-wow-delay="0.1s"
-              >
-                <h4 className="small-title">
-                  our agile process<span className="square-dot-small"></span>
-                </h4>
-                <h3 className="title-desc spacing120">Adapting agility for smarter outcomes</h3>
-                <p className="title-info mb-0">
-                  At Pi Techniques, we’ve learned that agility isn’t just a methodology, it’s a mindset. As client needs
-                  evolve, we adapt. That’s why we’ve embraced{" "}
-                  <span className="text-orange">Agile Project Management.</span> A proven, flexible framework that helps
-                  us stay aligned, responsive, and focused on what matters most: delivering results, fast.
-                </p>
-              </div>
-              <div className="col-12 col-md-12 offset-md-0 col-xl-4 col-xxl-5 offset-xl-1">
-                <div className="our-process">
-                  <div className=" wow " data-wow-delay="0.1s">
-                    <h4 className="mb-0">Discover & Define</h4>
-                    <p className="service-info">
-                      We start by understanding your goals, challenges, and vision — laying the foundation with clear
-                      scope and priorities.
-                    </p>
-                  </div>
-                  <div className=" wow " data-wow-delay="0.3s">
-                    <h4 className="mb-0">Plan & Prioritize</h4>
-                    <p className="service-info">
-                      {" "}
-                      With a product backlog in place, we break down work into sprints — short, focused cycles that help
-                      us move fast and stay focused.
-                    </p>
-                  </div>
-                  <div className=" wow " data-wow-delay="0.5s">
-                    <h4 className="mb-0">Design & Develop</h4>
-                    <p className="service-info">
-                      Our teams build iteratively, sharing progress frequently and refining the solution at every stage.
-                    </p>
-                  </div>
-                  <div className=" wow " data-wow-delay="0.7s">
-                    <h4 className="mb-0">Review & Collaborate</h4>
-                    <p className="service-info">
-                      At the end of each sprint, we present working features, gather feedback, and make sure we’re always
-                      aligned.
-                    </p>
-                  </div>
-                  <div className=" wow " data-wow-delay="0.8s">
-                    <h4 className="mb-0">Test & Enhance</h4>
-                    <p className="service-info">
-                      {" "}
-                      Continuous testing and integration ensures high quality products. We don’t just fix bugs — we
-                      improve with each cycle.
-                    </p>
-                  </div>
-                  <div className=" wow " data-wow-delay="0.8s">
-                    <h4 className="mb-0">Deliver & Support</h4>
-                    <p className="service-info">
-                      Once we go live, we’re still with you — providing support, enhancements, and a roadmap for what’s
-                      next.
-                    </p>
-                  </div>
-                  <h6 className="our-process-italicTitle">
-                    Agile isn’t about moving fast blindly. It’s about moving fast in the right direction — with you at
-                    the center of the journey.{" "}
-                  </h6>
+        {about.showWhySection && (
+          <section className="common-space160 adapting grey-section">
+            <div className="container-fluid p-0">
+              <div className="row justify-content-between g-0">
+                <div
+                  className="col-12 col-md-12 col-xl-3 col-xxl-3 offset-xl-2 offset-xxl-2 wow fadeInLeft"
+                  data-wow-duration="1.5s"
+                  data-wow-delay="0.1s"
+                >
+                  <h4 className="small-title">
+                    {about.whyHeading}
+                    <span className="square-dot-small"></span>
+                  </h4>
+                  <h3 className="title-desc spacing120">{about.whyTitle}</h3>
+                  <p className="title-info mb-0">{withAgileHighlight(about.whyDescription ?? "")}</p>
                 </div>
+                <div className="col-12 col-md-12 offset-md-0 col-xl-4 col-xxl-5 offset-xl-1">
+                  <div className="our-process">
+                    {about.steps.map((step, i) => (
+                      <div key={`${step.title}-${i}`} className=" wow " data-wow-delay={STEP_WOW_DELAYS[i] ?? "0.8s"}>
+                        <h4 className="mb-0">{step.title}</h4>
+                        <p className="service-info">{step.description}</p>
+                      </div>
+                    ))}
+                    <h6 className="our-process-italicTitle">
+                      Agile isn’t about moving fast blindly. It’s about moving fast in the right direction — with you at
+                      the center of the journey.{" "}
+                    </h6>
+                  </div>
+                </div>
+                <div className="col-0 col-md-1"></div>
               </div>
-              <div className="col-0 col-md-1"></div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="common-space160 bg-black team-members-ui">
           <div className="container-fluid p-0">

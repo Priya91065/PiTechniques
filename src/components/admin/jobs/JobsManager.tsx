@@ -43,6 +43,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useNotify } from "@/components/admin/NotificationProvider";
 import { useConfirm } from "@/components/admin/ConfirmProvider";
 import type { MediaPermissions } from "@/types/media";
+import SeoFieldsSection, { EMPTY_SEO_FIELDS } from "@/components/admin/shared/SeoFieldsSection";
 
 type Status = "ACTIVE" | "INACTIVE";
 
@@ -61,6 +62,10 @@ interface AdminJob {
   skills: string[];
   seoTitle: string | null;
   seoDescription: string | null;
+  seoKeywords: string | null;
+  canonicalUrl: string | null;
+  twitterImage: string | null;
+  robotsMeta: string | null;
   status: Status;
   displayOrder: number;
 }
@@ -79,8 +84,15 @@ const formSchema = z.object({
   respMode: z.enum(["flat", "grouped"]),
   respFlatText: z.string().optional(),
   respGroups: z.array(z.object({ heading: z.string(), itemsText: z.string() })),
-  seoTitle: z.string().trim().optional(),
-  seoDescription: z.string().trim().optional(),
+  seo: z.object({
+    seoTitle: z.string(),
+    seoDescription: z.string(),
+    seoKeywords: z.string(),
+    canonicalUrl: z.string(),
+    ogImage: z.string(),
+    twitterImage: z.string(),
+    robotsMeta: z.string(),
+  }),
   status: z.enum(["ACTIVE", "INACTIVE"]),
 });
 type FormValues = z.infer<typeof formSchema>;
@@ -99,8 +111,7 @@ const EMPTY: FormValues = {
   respMode: "flat",
   respFlatText: "",
   respGroups: [],
-  seoTitle: "",
-  seoDescription: "",
+  seo: EMPTY_SEO_FIELDS,
   status: "ACTIVE",
 };
 
@@ -141,8 +152,15 @@ function jobToForm(j: AdminJob): FormValues {
     respMode,
     respFlatText,
     respGroups,
-    seoTitle: j.seoTitle ?? "",
-    seoDescription: j.seoDescription ?? "",
+    seo: {
+      seoTitle: j.seoTitle ?? "",
+      seoDescription: j.seoDescription ?? "",
+      seoKeywords: j.seoKeywords ?? "",
+      canonicalUrl: j.canonicalUrl ?? "",
+      ogImage: "",
+      twitterImage: j.twitterImage ?? "",
+      robotsMeta: j.robotsMeta ?? "",
+    },
     status: j.status,
   };
 }
@@ -222,8 +240,12 @@ export default function JobsManager({ perms }: { perms: MediaPermissions }): JSX
       qualifications: linesToArray(v.qualificationsText),
       responsibilities: responsibilities.length > 0 ? responsibilities : null,
       skills: linesToArray(v.skillsText),
-      seoTitle: v.seoTitle ?? "",
-      seoDescription: v.seoDescription ?? "",
+      seoTitle: v.seo.seoTitle ?? "",
+      seoDescription: v.seo.seoDescription ?? "",
+      seoKeywords: v.seo.seoKeywords ?? "",
+      canonicalUrl: v.seo.canonicalUrl ?? "",
+      twitterImage: v.seo.twitterImage ?? "",
+      robotsMeta: v.seo.robotsMeta ?? "",
       status: v.status,
     };
   }
@@ -477,9 +499,13 @@ export default function JobsManager({ perms }: { perms: MediaPermissions }): JSX
             <Divider textAlign="left">Good to have (one per line)</Divider>
             <TextField fullWidth multiline minRows={2} {...register("skillsText")} />
 
-            <Divider textAlign="left">SEO</Divider>
-            <TextField label="SEO title (optional)" fullWidth {...register("seoTitle")} />
-            <TextField label="SEO description (optional)" fullWidth multiline minRows={2} {...register("seoDescription")} />
+            <Controller
+              control={control}
+              name="seo"
+              render={({ field }) => (
+                <SeoFieldsSection value={field.value} onChange={field.onChange} disabled={!perms.canEdit} />
+              )}
+            />
 
             <Controller
               control={control}

@@ -331,6 +331,59 @@ async function main(): Promise<void> {
   await prisma.homeContent.upsert({ where: { id: "home" }, update: homeData, create: { id: "home", ...homeData } });
   console.log("✔ Home content");
 
+  // --- About page content (singleton) --------------------------------------
+  const aboutData = {
+    bannerTitle: "We keep it precise and\nsimple",
+    bannerSubtitle: "Three decades of building with care and clarity.",
+    introEyebrow: "ABOUT US",
+    introTitle: "Rooted in experience.\nDriven by innovation.",
+    introDescription: [
+      "At Pi Techniques, we've been solving problems with tech since 1992. Beginning as a small support firm for individuals and home offices, and growing into a trusted, full-spectrum technology partner for modern businesses.",
+      "Over the years, we’ve expanded into software development, web technologies, and IT infrastructure services. We have been delivering solutions that are tailored, reliable, and future-ready. Many of our clients have been with us for decades, a testament to our clear, simple, and client-first approach. No jargon, just measurable results.",
+      "Backed by decades of experience, we create technology shaped around your business needs — reliable, scalable, and future-ready. Solutions that help grow with your business and keep pace with a fast-moving tech world.",
+    ].join("\n\n"),
+    whyHeading: "our agile process",
+    whyTitle: "Adapting agility for smarter outcomes",
+    whyDescription:
+      "At Pi Techniques, we’ve learned that agility isn’t just a methodology, it’s a mindset. As client needs evolve, we adapt. That’s why we’ve embraced Agile Project Management. A proven, flexible framework that helps us stay aligned, responsive, and focused on what matters most: delivering results, fast.",
+  };
+  await prisma.aboutContent.upsert({ where: { id: "about" }, update: aboutData, create: { id: "about", ...aboutData } });
+
+  const agileSteps = [
+    { title: "Discover & Define", description: "We start by understanding your goals, challenges, and vision — laying the foundation with clear scope and priorities." },
+    { title: "Plan & Prioritize", description: "With a product backlog in place, we break down work into sprints — short, focused cycles that help us move fast and stay focused." },
+    { title: "Design & Develop", description: "Our teams build iteratively, sharing progress frequently and refining the solution at every stage." },
+    { title: "Review & Collaborate", description: "At the end of each sprint, we present working features, gather feedback, and make sure we’re always aligned." },
+    { title: "Test & Enhance", description: "Continuous testing and integration ensures high quality products. We don’t just fix bugs — we improve with each cycle." },
+    { title: "Deliver & Support", description: "Once we go live, we’re still with you — providing support, enhancements, and a roadmap for what’s next." },
+  ];
+  for (const [i, step] of agileSteps.entries()) {
+    await prisma.whyChooseFeature.upsert({
+      where: { id: `seed-agile-${i}` },
+      update: { ...step, order: i },
+      create: { id: `seed-agile-${i}`, ...step, order: i },
+    });
+  }
+  console.log("✔ About page content");
+
+  // --- Contact page content (singleton) ------------------------------------
+  const contactData = {
+    locationHeading: "LOCATION",
+    locationTitle: "Our headquarters",
+    officeName: "Nariman Point",
+    officeCity: "Mumbai",
+    officeAddress: "61/63C Mittal Tower,\nNariman Point,\nMumbai - 400021",
+    directionsUrl:
+      "https://www.google.com/maps/place/Pi+Techniques+Pvt.+Ltd./@18.9251667,72.824424,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7d1e97e031c0b:0x8a44b9ad6132d028!8m2!3d18.9251667!4d72.824424!16s%2Fg%2F1th5y83b?entry=ttu",
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.140669523596!2d72.824424!3d18.9251667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e97e031c0b%3A0x8a44b9ad6132d028!2sPi%20Techniques%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1762169535718!5m2!1sen!2sin",
+    formHeading: "Contact US",
+    formTitle: "Get in touch",
+    formIntro: "We're here to help and answer any questions you might have. We look forward to hearing from you.",
+  };
+  await prisma.contactContent.upsert({ where: { id: "contact" }, update: contactData, create: { id: "contact", ...contactData } });
+  console.log("✔ Contact page content");
+
   // --- Site settings (singleton) ------------------------------------------
   const siteData = {
     companyEmail: "enquiry@pitechniques.com",

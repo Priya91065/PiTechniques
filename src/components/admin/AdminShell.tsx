@@ -42,6 +42,8 @@ import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
 import PermMediaOutlinedIcon from "@mui/icons-material/PermMediaOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -56,6 +58,7 @@ const ICONS: Record<IconKey, ElementType> = {
   homepage: HomeOutlinedIcon,
   banner: ViewCarouselOutlinedIcon,
   pages: DescriptionOutlinedIcon,
+  about: InfoOutlinedIcon,
   services: DesignServicesOutlinedIcon,
   caseStudies: WorkOutlineOutlinedIcon,
   testimonials: FormatQuoteOutlinedIcon,
@@ -63,6 +66,7 @@ const ICONS: Record<IconKey, ElementType> = {
   faqs: QuizOutlinedIcon,
   clients: BusinessOutlinedIcon,
   careers: BadgeOutlinedIcon,
+  contactPage: ContactMailOutlinedIcon,
   navigation: AccountTreeOutlinedIcon,
   media: PermMediaOutlinedIcon,
   messages: MailOutlinedIcon,

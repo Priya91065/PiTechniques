@@ -32,56 +32,29 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useNotify } from "@/components/admin/NotificationProvider";
 import { useConfirm } from "@/components/admin/ConfirmProvider";
 import type { MediaPermissions } from "@/types/media";
-import SeoFieldsSection, { EMPTY_SEO_FIELDS, type SeoFieldsValue } from "@/components/admin/shared/SeoFieldsSection";
 
-interface AdminService {
+interface AdminWhyChooseFeature {
   id: string;
-  slug: string;
-  anchor: string;
+  icon: string | null;
   title: string;
   description: string;
-  iconDark: string;
-  iconLight: string;
-  tags: string[];
   published: boolean;
   order: number;
-  seoTitle: string | null;
-  seoDescription: string | null;
-  seoKeywords: string | null;
-  canonicalUrl: string | null;
-  ogImage: string | null;
-  twitterImage: string | null;
-  robotsMeta: string | null;
 }
 
 type FormState = {
   title: string;
-  slug: string;
-  anchor: string;
   description: string;
-  iconDark: string;
-  iconLight: string;
-  tags: string;
+  icon: string;
   published: boolean;
-  seo: SeoFieldsValue;
 };
 
-const EMPTY: FormState = {
-  title: "",
-  slug: "",
-  anchor: "",
-  description: "",
-  iconDark: "",
-  iconLight: "",
-  tags: "",
-  published: true,
-  seo: EMPTY_SEO_FIELDS,
-};
+const EMPTY: FormState = { title: "", description: "", icon: "", published: true };
 
-export default function ServicesManager({ perms }: { perms: MediaPermissions }): JSX.Element {
+export default function WhyChooseFeaturesManager({ perms }: { perms: MediaPermissions }): JSX.Element {
   const notify = useNotify();
   const confirm = useConfirm();
-  const [items, setItems] = useState<AdminService[]>([]);
+  const [items, setItems] = useState<AdminWhyChooseFeature[]>([]);
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -91,8 +64,8 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
   const load = useCallback(async (): Promise<void> => {
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/services");
-      const data: { items?: AdminService[]; error?: string } = await res.json().catch(() => ({}));
+      const res = await fetch("/api/admin/why-choose-features");
+      const data: { items?: AdminWhyChooseFeature[]; error?: string } = await res.json().catch(() => ({}));
       if (!res.ok) {
         notify(data.error ?? "Failed to load", "error");
         return;
@@ -115,55 +88,31 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
     setDialogOpen(true);
   }
 
-  function openEdit(s: AdminService): void {
+  function openEdit(s: AdminWhyChooseFeature): void {
     setEditingId(s.id);
     setForm({
       title: s.title,
-      slug: s.slug,
-      anchor: s.anchor,
       description: s.description,
-      iconDark: s.iconDark,
-      iconLight: s.iconLight,
-      tags: s.tags.join(", "),
+      icon: s.icon ?? "",
       published: s.published,
-      seo: {
-        seoTitle: s.seoTitle ?? "",
-        seoDescription: s.seoDescription ?? "",
-        seoKeywords: s.seoKeywords ?? "",
-        canonicalUrl: s.canonicalUrl ?? "",
-        ogImage: s.ogImage ?? "",
-        twitterImage: s.twitterImage ?? "",
-        robotsMeta: s.robotsMeta ?? "",
-      },
     });
     setDialogOpen(true);
   }
 
   async function save(): Promise<void> {
-    if (!form.title.trim() || !form.slug.trim() || !form.anchor.trim() || !form.description.trim()) {
-      notify("Title, slug, anchor and description are required", "warning");
+    if (!form.title.trim() || !form.description.trim()) {
+      notify("Title and description are required", "warning");
       return;
     }
     setSaving(true);
     try {
       const payload = {
         title: form.title,
-        slug: form.slug,
-        anchor: form.anchor,
         description: form.description,
-        iconDark: form.iconDark || "/images/home-lottie/Tailored.png",
-        iconLight: form.iconLight || "/images/services-lottie/Tailored.png",
-        tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
+        icon: form.icon || null,
         published: form.published,
-        seoTitle: form.seo.seoTitle || null,
-        seoDescription: form.seo.seoDescription || null,
-        seoKeywords: form.seo.seoKeywords || null,
-        canonicalUrl: form.seo.canonicalUrl || null,
-        ogImage: form.seo.ogImage || null,
-        twitterImage: form.seo.twitterImage || null,
-        robotsMeta: form.seo.robotsMeta || null,
       };
-      const url = editingId ? `/api/admin/services/${editingId}` : "/api/admin/services";
+      const url = editingId ? `/api/admin/why-choose-features/${editingId}` : "/api/admin/why-choose-features";
       const res = await fetch(url, {
         method: editingId ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -174,7 +123,7 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
         notify(data.error ?? "Save failed", "error");
         return;
       }
-      notify(editingId ? "Service updated" : "Service created");
+      notify(editingId ? "Step updated" : "Step created");
       setDialogOpen(false);
       await load();
     } catch {
@@ -184,9 +133,9 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
     }
   }
 
-  async function togglePublished(s: AdminService): Promise<void> {
+  async function togglePublished(s: AdminWhyChooseFeature): Promise<void> {
     try {
-      const res = await fetch(`/api/admin/services/${s.id}`, {
+      const res = await fetch(`/api/admin/why-choose-features/${s.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ published: !s.published }),
@@ -202,22 +151,22 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
     }
   }
 
-  async function remove(s: AdminService): Promise<void> {
+  async function remove(s: AdminWhyChooseFeature): Promise<void> {
     const ok = await confirm({
-      title: "Delete service?",
+      title: "Delete step?",
       message: `"${s.title}" will be permanently removed.`,
       confirmText: "Delete",
       destructive: true,
     });
     if (!ok) return;
     try {
-      const res = await fetch(`/api/admin/services/${s.id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/why-choose-features/${s.id}`, { method: "DELETE" });
       if (!res.ok) {
         notify("Delete failed", "error");
         return;
       }
       setItems((prev) => prev.filter((x) => x.id !== s.id));
-      notify("Service deleted");
+      notify("Step deleted");
     } catch {
       notify("Network error", "error");
     }
@@ -231,7 +180,7 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
     next.splice(target, 0, moved);
     setItems(next);
     try {
-      const res = await fetch("/api/admin/services/reorder", {
+      const res = await fetch("/api/admin/why-choose-features/reorder", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ids: next.map((x) => x.id) }),
@@ -249,12 +198,12 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
   return (
     <Box>
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2 }}>
-        <Typography variant="h4" fontWeight={800}>
-          Services
+        <Typography variant="h6" fontWeight={700}>
+          Agile process steps
         </Typography>
         {perms.canCreate && (
           <Button variant="contained" startIcon={<AddIcon />} onClick={openCreate}>
-            New service
+            New step
           </Button>
         )}
       </Stack>
@@ -270,7 +219,6 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
               <TableRow>
                 <TableCell width={90}>Order</TableCell>
                 <TableCell>Title</TableCell>
-                <TableCell>Slug</TableCell>
                 <TableCell align="center">Published</TableCell>
                 <TableCell align="right">Actions</TableCell>
               </TableRow>
@@ -278,8 +226,8 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
             <TableBody>
               {items.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} align="center" sx={{ py: 4, color: "text.secondary" }}>
-                    No services yet.
+                  <TableCell colSpan={4} align="center" sx={{ py: 4, color: "text.secondary" }}>
+                    No steps yet.
                   </TableCell>
                 </TableRow>
               ) : (
@@ -298,7 +246,6 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
                       </IconButton>
                     </TableCell>
                     <TableCell sx={{ fontWeight: 600, maxWidth: 360 }}>{s.title}</TableCell>
-                    <TableCell sx={{ color: "text.secondary" }}>{s.slug}</TableCell>
                     <TableCell align="center">
                       <Switch
                         checked={s.published}
@@ -332,7 +279,7 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
       )}
 
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} fullWidth maxWidth="md">
-        <DialogTitle>{editingId ? "Edit service" : "New service"}</DialogTitle>
+        <DialogTitle>{editingId ? "Edit step" : "New step"}</DialogTitle>
         <DialogContent>
           <Stack spacing={2} sx={{ mt: 1 }}>
             <TextField
@@ -342,24 +289,6 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
               required
               fullWidth
             />
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <TextField
-                label="Slug"
-                value={form.slug}
-                onChange={(e) => setForm((f) => ({ ...f, slug: e.target.value }))}
-                required
-                fullWidth
-                helperText="Unique identifier"
-              />
-              <TextField
-                label="Anchor"
-                value={form.anchor}
-                onChange={(e) => setForm((f) => ({ ...f, anchor: e.target.value }))}
-                required
-                fullWidth
-                helperText="Used for /services#anchor links"
-              />
-            </Stack>
             <TextField
               label="Description"
               value={form.description}
@@ -368,32 +297,12 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
               minRows={3}
               required
               fullWidth
-              helperText="Use a blank line to separate paragraphs"
             />
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <TextField
-                label="Dark icon URL (home grid / detail)"
-                value={form.iconDark}
-                onChange={(e) => setForm((f) => ({ ...f, iconDark: e.target.value }))}
-                fullWidth
-              />
-              <TextField
-                label="Light icon URL (services grid)"
-                value={form.iconLight}
-                onChange={(e) => setForm((f) => ({ ...f, iconLight: e.target.value }))}
-                fullWidth
-              />
-            </Stack>
             <TextField
-              label="Tags (comma separated)"
-              value={form.tags}
-              onChange={(e) => setForm((f) => ({ ...f, tags: e.target.value }))}
+              label="Icon URL (optional)"
+              value={form.icon}
+              onChange={(e) => setForm((f) => ({ ...f, icon: e.target.value }))}
               fullWidth
-            />
-            <SeoFieldsSection
-              value={form.seo}
-              onChange={(next) => setForm((f) => ({ ...f, seo: next }))}
-              disabled={!perms.canEdit}
             />
             <FormControlLabel
               control={

@@ -130,6 +130,16 @@ model Service {
   tags        String[]
   order       Int      @default(0)
   published   Boolean  @default(true)
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeywords    String?
+  canonicalUrl   String?
+  ogImage        String?
+  twitterImage   String?
+  robotsMeta     String?
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -184,6 +194,10 @@ model CaseStudy {
   seoTitle       String?
   seoDescription String? @db.Text
   ogImage        String?
+  seoKeywords    String?
+  canonicalUrl   String?
+  twitterImage   String?
+  robotsMeta     String?
 
   solutions CaseStudySolution[]
   features  CaseStudyFeature[]
@@ -525,6 +539,10 @@ model Job {
   skills           String[] // "Good to have"
   seoTitle         String?
   seoDescription   String?   @db.Text
+  seoKeywords      String?
+  canonicalUrl     String?
+  twitterImage     String?
+  robotsMeta       String?
   status           JobStatus @default(ACTIVE)
   displayOrder     Int       @default(0)
   createdAt        DateTime  @default(now())
@@ -533,4 +551,189 @@ model Job {
   @@index([status])
   @@index([displayOrder])
   @@map("jobs")
+}
+
+// ---------------------------------------------------------------------------
+// Content: About page
+// ---------------------------------------------------------------------------
+
+// Singleton draft (id is always "about"): About page editable copy.
+model AboutContent {
+  id String @id @default("about")
+
+  // Banner
+  bannerTitle    String  @db.Text
+  bannerSubtitle String? @db.Text
+  bannerImage    String?
+  breadcrumb     String?
+  ctaLabel       String?
+  ctaHref        String?
+  showBanner     Boolean @default(true)
+
+  // Company introduction
+  introEyebrow     String?
+  introTitle       String  @db.Text
+  introDescription String  @db.Text
+  introImage       String?
+  introCtaLabel    String?
+  introCtaHref     String?
+
+  // "Our agile process" section
+  whyHeading     String? // small-title eyebrow, e.g. "our agile process"
+  whyTitle       String? @db.Text // title-desc, e.g. "Adapting agility for smarter outcomes"
+  whyDescription String? @db.Text
+  whyImage       String?
+  showWhySection Boolean @default(true)
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeywords    String?
+  canonicalUrl   String?
+  ogImage        String?
+  twitterImage   String?
+  robotsMeta     String?
+
+  updatedAt DateTime @updatedAt
+
+  @@map("about_content")
+}
+
+// Published snapshot of the About page (mirrors HomepageSnapshot).
+model AboutSnapshot {
+  id        String   @id @default("published")
+  data      Json
+  updatedAt DateTime @updatedAt
+
+  @@map("about_snapshots")
+}
+
+// Mission / Vision / Values cards on the About page.
+model ValueCard {
+  id          String   @id @default(cuid())
+  icon        String?
+  title       String
+  description String   @db.Text
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@map("value_cards")
+}
+
+// Company journey / timeline entries on the About page.
+model TimelineItem {
+  id          String   @id @default(cuid())
+  year        String
+  title       String
+  description String   @db.Text
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@map("timeline_items")
+}
+
+// "Why choose us" feature bullets on the About page.
+model WhyChooseFeature {
+  id          String   @id @default(cuid())
+  icon        String?
+  title       String
+  description String   @db.Text
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@map("why_choose_features")
+}
+
+// ---------------------------------------------------------------------------
+// Content: Contact page
+// ---------------------------------------------------------------------------
+
+// Singleton draft (id is always "contact"): Contact page editable copy.
+model ContactContent {
+  id String @id @default("contact")
+
+  // Location section
+  locationHeading String? // small-title, e.g. "LOCATION"
+  locationTitle   String? // title-desc, e.g. "Our headquarters"
+  officeName      String? // e.g. "Nariman Point"
+  officeCity      String? // e.g. "Mumbai"
+  officeAddress   String? @db.Text
+  directionsUrl   String? @db.Text
+  mapEmbedUrl     String? @db.Text
+
+  // Contact info (future-ready, not all rendered yet)
+  phone        String?
+  email        String?
+  workingHours String?
+
+  // Get in touch / form section
+  formHeading     String? // small-title, e.g. "Contact US"
+  formTitle       String? @db.Text // title-desc, e.g. "Get in touch"
+  formIntro       String? @db.Text
+  formDescription String? @db.Text
+  successMessage  String?
+  errorMessage    String?
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeywords    String?
+  canonicalUrl   String?
+  ogImage        String?
+  twitterImage   String?
+  robotsMeta     String?
+
+  updatedAt DateTime @updatedAt
+
+  @@map("contact_content")
+}
+
+// Published snapshot of the Contact page (mirrors HomepageSnapshot).
+model ContactSnapshot {
+  id        String   @id @default("published")
+  data      Json
+  updatedAt DateTime @updatedAt
+
+  @@map("contact_snapshots")
+}
+
+// Social media links shown on the Contact page (and footer).
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String
+  url       String
+  icon      String?
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("social_links")
+}
+
+// Office locations (future-ready: supports multiple offices).
+model OfficeLocation {
+  id        String   @id @default(cuid())
+  name      String
+  address   String   @db.Text
+  phone     String?
+  email     String?
+  mapUrl    String?  @db.Text
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("office_locations")
 }

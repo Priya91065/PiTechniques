@@ -27,6 +27,10 @@ export const jobInput = z.object({
   skills: z.array(z.string().trim().min(1)).default([]),
   seoTitle: z.string().trim().max(200).nullable().optional(),
   seoDescription: z.string().trim().max(400).nullable().optional(),
+  seoKeywords: z.string().trim().nullable().optional(),
+  canonicalUrl: z.string().trim().nullable().optional(),
+  twitterImage: z.string().trim().nullable().optional(),
+  robotsMeta: z.string().trim().nullable().optional(),
   status: jobStatusEnum.default("ACTIVE"),
   displayOrder: z.number().int().optional(),
 });
