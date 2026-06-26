@@ -107,7 +107,11 @@
       "Bash(vercel env *)",
       "Bash(git commit *)",
       "Bash(gh pr *)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(npx vercel *)",
+      "Bash(xargs ls -1)",
+      "PowerShell(Get-ChildItem -Path \"P:\\\\PI_Tech\\\\AI\\\\Claude AI\\\\files\\\\pi-techniques\\\\pi-techniques\\\\src\\\\app\\\\\\(admin\\)\\\\admin\\\\\\(panel\\)\" -MaxDepth 1 -Filter \"page.tsx\" | ForEach-Object { $_.Parent.Name })",
+      "PowerShell(Get-ChildItem -Path \"P:\\\\PI_Tech\\\\AI\\\\Claude AI\\\\files\\\\pi-techniques\\\\pi-techniques\\\\src\\\\app\\\\\\(admin\\)\\\\admin\\\\\\(panel\\)\" -Depth 1 -Filter \"page.tsx\" | ForEach-Object { $_.Directory.Name })"
     ]
   }
 }
