@@ -1,6 +1,7 @@
 import type { JSX, ReactNode } from "react";
 import BodyClass from "@/components/home/BodyClass";
 import PageScripts from "@/components/home/PageScripts";
+import styles from "@/components/home/StaticPage.module.css";
 
 /**
  * Shared shell for the static policy pages (privacy, terms, CSR, data
@@ -21,11 +22,11 @@ export default function StaticPage({
   return (
     <>
       <BodyClass name={pageClass} />
-      <section className="static-pages grey-section">
+      <section className={`static-pages grey-section ${styles.staticPages}`}>
         <div className="row g-0">
           <div className="offset-xl-2 col-xl-7">
             <h1>{heading}</h1>
-            <div className={contentClassName}>{children}</div>
+            <div className={`${contentClassName} ${styles.staticContent}`}>{children}</div>
           </div>
         </div>
       </section>
