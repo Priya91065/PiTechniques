@@ -105,7 +105,9 @@
       "Bash(curl -s -m 20 \"http://localhost:3000/privacy-policy\")",
       "Bash(npx eslint *)",
       "Bash(vercel env *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(gh pr *)",
+      "Bash(gh auth *)"
     ]
   }
 }
