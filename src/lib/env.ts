@@ -31,6 +31,24 @@ const envSchema = z.object({
   // Production file storage: when set (Vercel Blob), uploads go to Blob and
   // persist across deploys; when unset, uploads use the local UPLOAD_DIR.
   BLOB_READ_WRITE_TOKEN: z.string().optional(),
+
+  // Outbound email (contact / career form notifications) — SMTP via Nodemailer.
+  // All optional: when SMTP_HOST + SMTP_USER + SMTP_PASS are present, the
+  // contact endpoint sends a notification email; when absent, it falls back to
+  // DB-only persistence (see src/lib/email/mailer.ts).
+  SMTP_HOST: z.string().min(1).optional(),
+  SMTP_PORT: z.coerce.number().int().positive().default(587),
+  SMTP_SECURE: z
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
+    .optional(),
+  SMTP_USER: z.string().min(1).optional(),
+  SMTP_PASS: z.string().min(1).optional(),
+  // Address the notification is sent FROM (must be allowed by the SMTP account).
+  // Defaults to SMTP_USER when unset.
+  CONTACT_FROM_EMAIL: z.string().email().optional(),
+  // Address(es) the notification is sent TO. Comma-separated for multiple.
+  CONTACT_NOTIFY_TO: z.string().min(1).optional(),
 });
 
 export type ServerEnv = z.infer<typeof envSchema>;
