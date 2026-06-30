@@ -118,7 +118,8 @@
       "Bash(curl -s http://localhost:3000/privacy-policy)",
       "Bash(curl -s http://localhost:3000/data-protection)",
       "Bash(curl -s http://localhost:3000/csr-policy)",
-      "Bash(curl -s -o /dev/null -w \"[%{http_code}]\\\\n\" http://localhost:3000/terms-of-use)"
+      "Bash(curl -s -o /dev/null -w \"[%{http_code}]\\\\n\" http://localhost:3000/terms-of-use)",
+      "Bash(git merge *)"
     ]
   }
 }
