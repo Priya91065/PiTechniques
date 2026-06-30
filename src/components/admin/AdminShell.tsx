@@ -115,9 +115,19 @@ export default function AdminShell({
   const drawer = (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <Toolbar sx={{ px: 2 }}>
-        <Typography variant="h6" fontWeight={800} noWrap>
-          Pi&nbsp;<Box component="span" sx={{ color: "primary.main" }}>Techniques</Box>
-        </Typography>
+        <Box
+          component={Link}
+          href="/admin"
+          aria-label="Pi Techniques admin"
+          sx={{ display: "inline-flex", alignItems: "center" }}
+        >
+          <Box
+            component="img"
+            src="/images/footer-logo.svg"
+            alt="Pi Techniques"
+            sx={{ height: 34, width: "auto", display: "block" }}
+          />
+        </Box>
       </Toolbar>
       <Divider />
       <Box sx={{ overflowY: "auto", flexGrow: 1, py: 1 }}>

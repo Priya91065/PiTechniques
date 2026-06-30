@@ -59,10 +59,13 @@ function LoginForm(): JSX.Element {
       }}
     >
       <Paper elevation={3} sx={{ p: 4, width: "100%", maxWidth: 400 }}>
-        <Stack spacing={1} sx={{ mb: 3 }}>
-          <Typography variant="h5" fontWeight={700}>
-            Pi Techniques
-          </Typography>
+        <Stack spacing={1.5} alignItems="center" sx={{ mb: 3 }}>
+          <Box
+            component="img"
+            src="/images/footer-logo.svg"
+            alt="Pi Techniques"
+            sx={{ height: 44, width: "auto" }}
+          />
           <Typography variant="body2" color="text.secondary">
             Admin sign in
           </Typography>
