@@ -13,12 +13,16 @@ export default function StaticPage({
   heading,
   contentClassName = "static-content",
   children,
+  html,
 }: {
   pageClass: string;
   heading: ReactNode;
   contentClassName?: string;
-  children: ReactNode;
+  children?: ReactNode;
+  /** When provided, the content area renders this HTML (CMS-driven) instead of children. */
+  html?: string;
 }): JSX.Element {
+  const contentClass = `${contentClassName} ${styles.staticContent}`;
   return (
     <>
       <BodyClass name={pageClass} />
@@ -26,7 +30,11 @@ export default function StaticPage({
         <div className="row g-0">
           <div className="offset-xl-2 col-xl-7">
             <h1>{heading}</h1>
-            <div className={`${contentClassName} ${styles.staticContent}`}>{children}</div>
+            {html != null ? (
+              <div className={contentClass} dangerouslySetInnerHTML={{ __html: html }} />
+            ) : (
+              <div className={contentClass}>{children}</div>
+            )}
           </div>
         </div>
       </section>

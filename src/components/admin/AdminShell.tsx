@@ -40,6 +40,7 @@ import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
+import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 import PermMediaOutlinedIcon from "@mui/icons-material/PermMediaOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -67,6 +68,7 @@ const ICONS: Record<IconKey, ElementType> = {
   clients: BusinessOutlinedIcon,
   careers: BadgeOutlinedIcon,
   contactPage: ContactMailOutlinedIcon,
+  policy: GavelOutlinedIcon,
   navigation: AccountTreeOutlinedIcon,
   media: PermMediaOutlinedIcon,
   messages: MailOutlinedIcon,

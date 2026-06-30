@@ -113,7 +113,12 @@
       "PowerShell(Get-ChildItem -Path \"P:\\\\PI_Tech\\\\AI\\\\Claude AI\\\\files\\\\pi-techniques\\\\pi-techniques\\\\src\\\\app\\\\\\(admin\\)\\\\admin\\\\\\(panel\\)\" -MaxDepth 1 -Filter \"page.tsx\" | ForEach-Object { $_.Parent.Name })",
       "PowerShell(Get-ChildItem -Path \"P:\\\\PI_Tech\\\\AI\\\\Claude AI\\\\files\\\\pi-techniques\\\\pi-techniques\\\\src\\\\app\\\\\\(admin\\)\\\\admin\\\\\\(panel\\)\" -Depth 1 -Filter \"page.tsx\" | ForEach-Object { $_.Directory.Name })",
       "Bash(curl -s -m 90 http://localhost:52608/admin/login -o /tmp/login.html -w \"HTTP %{http_code}\\\\n\")",
-      "Bash(curl -s -m 120 http://localhost:52608/ -o /tmp/root.html -w \"HTTP %{http_code} time=%{time_total}\\\\n\")"
+      "Bash(curl -s -m 120 http://localhost:52608/ -o /tmp/root.html -w \"HTTP %{http_code} time=%{time_total}\\\\n\")",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; \"node: \" + \\(Get-Process node -ErrorAction SilentlyContinue\\).Count)",
+      "Bash(curl -s http://localhost:3000/privacy-policy)",
+      "Bash(curl -s http://localhost:3000/data-protection)",
+      "Bash(curl -s http://localhost:3000/csr-policy)",
+      "Bash(curl -s -o /dev/null -w \"[%{http_code}]\\\\n\" http://localhost:3000/terms-of-use)"
     ]
   }
 }

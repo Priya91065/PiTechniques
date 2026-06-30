@@ -10,6 +10,7 @@ import bcrypt from "bcryptjs";
 import { caseStudyProjects } from "../src/constants/caseStudyProjects";
 import { leaders as TEAM_LEADERS, executives as TEAM_EXECUTIVES, type TeamMember as AboutTeamMember } from "../src/constants/aboutTeam";
 import { faithfulJobs, type FaithfulJob } from "../src/constants/faithfulJobs";
+import { POLICY_PAGES_HTML, POLICY_SLUGS } from "../src/constants/policyPagesHtml";
 
 const prisma = new PrismaClient();
 
@@ -473,6 +474,26 @@ async function main(): Promise<void> {
     ],
   });
   console.log("✔ Home stats: 3 counters");
+
+  // --- Policy pages --------------------------------------------------------
+  await prisma.policyPage.deleteMany({});
+  for (const slug of POLICY_SLUGS) {
+    const p = POLICY_PAGES_HTML[slug];
+    await prisma.policyPage.create({
+      data: {
+        slug: p.slug,
+        pageClass: p.pageClass,
+        heading: p.heading,
+        bannerDescription: p.bannerDescription,
+        contentClassName: p.contentClassName,
+        contentHtml: p.contentHtml,
+        seoTitle: p.seoTitle,
+        seoDescription: p.seoDescription,
+        status: "PUBLISHED",
+      },
+    });
+  }
+  console.log(`✔ Policy pages: ${POLICY_SLUGS.length}`);
 
   console.log("\n🌱 Seed complete.");
 }

@@ -737,3 +737,27 @@ model OfficeLocation {
   @@index([order])
   @@map("office_locations")
 }
+
+// ---------------------------------------------------------------------------
+// Static policy pages (privacy, terms, CSR, data-protection) — one shared
+// schema keyed by slug. Body is stored as HTML so the exact (pixel-perfect)
+// markup is preserved; the admin edits it via a rich-text + HTML-source editor.
+// ---------------------------------------------------------------------------
+model PolicyPage {
+  id                String     @id @default(cuid())
+  slug              String     @unique // privacy-policy | terms-of-use | csr-policy | data-protection
+  pageClass         String // <body> class the faithful page sets
+  heading           String // H1 — may contain inline HTML (e.g. <br/>)
+  bannerDescription String?    @db.Text
+  contentClassName  String     @default("static-content")
+  contentHtml       String     @db.Text // inner HTML of the .static-content container
+  seoTitle          String?
+  seoDescription    String?    @db.Text
+  seoKeywords       String?
+  ogImage           String?
+  status            PageStatus @default(PUBLISHED)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  @@map("policy_pages")
+}

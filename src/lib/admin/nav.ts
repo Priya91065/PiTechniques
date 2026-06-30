@@ -14,6 +14,7 @@ export type IconKey =
   | "clients"
   | "careers"
   | "contactPage"
+  | "policy"
   | "navigation"
   | "media"
   | "messages"
@@ -57,6 +58,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "Clients", href: "/admin/clients", icon: "clients" },
       { label: "Careers", href: "/admin/jobs", icon: "careers" },
       { label: "Contact Page", href: "/admin/contact-page", icon: "contactPage" },
+      { label: "Policy Pages", href: "/admin/policy-pages", icon: "policy" },
       { label: "Navigation", href: "/admin/navigation", icon: "navigation" },
     ],
   },
