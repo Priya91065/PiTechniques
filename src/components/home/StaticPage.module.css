@@ -1,0 +1,344 @@
+/*
+ * Component-scoped styling for the static policy pages (privacy, terms, CSR,
+ * data protection). Migrated verbatim from the global `style.css` /
+ * `responsive.css` `.static-pages` + `.static-content` rules so the design,
+ * spacing, typography and every breakpoint stay pixel-identical while the
+ * dependency on those global files is removed.
+ *
+ * Author class names that live inside the page content (.content-divide,
+ * .csr-div, .pdf-content, .blankli) are matched with :global() but kept scoped
+ * under the module root, so they are no longer global yet page files need no
+ * change. Element selectors (h2/p/ul/li/table…) are scoped to the content root.
+ */
+
+/* ---- Page shell (.static-pages) ---- */
+.staticPages {
+  padding: 55px 80px 149px 80px;
+  margin-top: 96px;
+}
+
+.staticPages h1 {
+  margin: 0px;
+  margin-bottom: 100px;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 60px;
+  color: #1b1b1b;
+}
+
+/* ---- Content (.static-content) ---- */
+.staticContent p,
+.staticContent h2,
+.staticContent ul {
+  margin: 0px;
+}
+
+.staticContent p,
+.staticContent h2,
+.staticContent li {
+  font-weight: 400;
+  font-size: 24px;
+  color: #1b1b1b;
+  line-height: 32px;
+}
+
+.staticContent :global(.content-divide) {
+  margin-bottom: 72px;
+}
+
+.staticContent :global(.content-divide):last-child {
+  margin-bottom: 0 !important;
+}
+
+.staticContent h2 {
+  font-weight: 600 !important;
+}
+
+.staticContent li {
+  position: relative;
+}
+
+.staticContent li::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+}
+
+.staticContent li b {
+  font-weight: 600;
+}
+
+.staticContent p a {
+  color: #f7941e;
+  text-decoration: none !important;
+}
+
+/* ---- Tables ---- */
+.staticContent table {
+  margin: 0px;
+}
+
+.staticContent table thead tr th,
+.staticContent table tbody tr td {
+  font-weight: 500;
+  font-size: 19px;
+  color: #1b1b1b !important;
+  line-height: 28px;
+  padding: 0px;
+}
+
+.staticContent table thead tr th {
+  font-weight: 600 !important;
+}
+
+.staticContent table tbody tr td[scope="row"] {
+  font-weight: 600 !important;
+}
+
+.staticContent table thead tr th {
+  border-bottom: 1px solid #68686a;
+  padding: 12px 0px 8px 0px;
+}
+
+.staticContent table thead tr th:first-child,
+.staticContent table tbody tr td:first-child {
+  padding-left: 16px;
+}
+
+.staticContent table tbody tr td {
+  padding: 12px 0px 12px 0px;
+}
+
+.staticContent table tbody tr:nth-child(odd) {
+  background-color: #e7e7e8;
+}
+
+.staticContent :global(.blankli) {
+  height: 28px;
+}
+
+/* ---- CSR variant ---- */
+.staticContent:global(.csr-div) :global(.content-divide) {
+  margin-bottom: 42px;
+}
+
+.staticContent:global(.csr-div) :global(.content-divide) p {
+  margin-bottom: 30px;
+}
+
+.staticContent:global(.csr-div) :global(.content-divide) p:last-child {
+  margin-bottom: 42px;
+}
+
+.staticContent :global(.csr-div) :global(.csr-logo),
+.staticContent:global(.csr-div) :global(.csr-logo) {
+  display: inline-flex;
+  gap: 40px;
+}
+
+.staticContent :global(.csr-div) :global(.csr-logo) img,
+.staticContent:global(.csr-div) :global(.csr-logo) img {
+  mix-blend-mode: multiply;
+}
+
+/* ---- PDF download links ---- */
+.staticContent :global(.pdf-content) {
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+.staticContent :global(.pdf-content) a img {
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
+}
+
+.staticContent :global(.pdf-content) a {
+  height: auto;
+  display: inline-block;
+  width: auto;
+  color: #121212;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: initial;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+.staticContent :global(.pdf-content) a span {
+  display: block;
+  vertical-align: middle;
+}
+
+.staticContent :global(.pdf-content) a :global(.arrowbg) {
+  background-color: #f7941e;
+  border-radius: 4px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  justify-content: center;
+  vertical-align: middle;
+  margin-left: 12px;
+  text-align: center;
+  line-height: 27px;
+}
+
+.staticContent :global(.pdf-content) a:hover :global(.arrowbg) img {
+  filter: unset !important;
+  animation: arrowFly 0.35s ease-in-out forwards;
+}
+
+.staticContent :global(.pdf-content) a :global(.arrowbg) img {
+  box-shadow: none;
+  margin: 0;
+  display: inline-block;
+}
+
+.staticContent :global(.pdf-content) a :global(.pdf-image) {
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.staticContent :global(.pdf-content) a:hover :global(.pdf-image) {
+  border: 1px solid #f7941e;
+}
+
+/* ===================================================================
+   Responsive overrides — replicated breakpoint-for-breakpoint from
+   responsive.css so mobile / tablet / desktop behaviour is unchanged.
+   =================================================================== */
+
+@media (max-width: 1650px) {
+  .staticContent table thead tr th {
+    width: auto;
+  }
+  .staticContent table tbody tr td,
+  .staticContent table tbody tr th {
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .staticPages h1 {
+    font-size: 48px;
+    line-height: 54px;
+    margin-bottom: 80px;
+  }
+  .staticPages {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .staticContent h2,
+  .staticContent li,
+  .staticContent p {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .staticContent table tbody tr td,
+  .staticContent table thead tr th {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .staticPages {
+    padding-right: 84px;
+    padding-left: 84px;
+    margin-top: 87px;
+  }
+  .staticPages h1 {
+    font-size: 54px;
+    line-height: 58px;
+  }
+  .staticContent h2,
+  .staticContent li,
+  .staticContent p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .staticPages p br {
+    display: none;
+  }
+  .staticContent :global(.csr-div) :global(.csr-logo),
+  .staticContent:global(.csr-div) :global(.csr-logo) {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .staticPages {
+    margin-top: 78px;
+    padding: 62px 32px 100px;
+  }
+  .staticPages h1 {
+    font-size: 34px;
+    line-height: 40px;
+    margin-bottom: 52px;
+  }
+  .staticContent h2,
+  .staticContent li,
+  .staticContent p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .staticContent :global(.content-divide) {
+    margin-bottom: 40px;
+  }
+  .staticContent table thead {
+    display: none;
+  }
+  .staticContent table,
+  .staticContent tbody,
+  .staticContent table tbody tr,
+  .staticContent table tbody td {
+    display: block;
+  }
+  .staticContent table tbody tr td {
+    padding: 0px !important;
+    border: 0 !important;
+  }
+  .staticContent table tbody tr {
+    padding: 20px 16px;
+  }
+  .staticContent table tbody tr td:first-child {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 8px;
+  }
+  .staticContent table tbody tr td {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .staticContent table tbody tr td h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin: 0px;
+  }
+  .staticContent table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  .staticContent :global(.blankli) {
+    display: none;
+  }
+  .staticContent li::after {
+    top: 11px;
+  }
+  .staticContent :global(.csr-div) :global(.csr-logo),
+  .staticContent:global(.csr-div) :global(.csr-logo) {
+    display: flex;
+    gap: 40px;
+    align-items: start;
+  }
+}

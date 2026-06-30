@@ -40,8 +40,11 @@ import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
+import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 import PermMediaOutlinedIcon from "@mui/icons-material/PermMediaOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -56,6 +59,7 @@ const ICONS: Record<IconKey, ElementType> = {
   homepage: HomeOutlinedIcon,
   banner: ViewCarouselOutlinedIcon,
   pages: DescriptionOutlinedIcon,
+  about: InfoOutlinedIcon,
   services: DesignServicesOutlinedIcon,
   caseStudies: WorkOutlineOutlinedIcon,
   testimonials: FormatQuoteOutlinedIcon,
@@ -63,6 +67,8 @@ const ICONS: Record<IconKey, ElementType> = {
   faqs: QuizOutlinedIcon,
   clients: BusinessOutlinedIcon,
   careers: BadgeOutlinedIcon,
+  contactPage: ContactMailOutlinedIcon,
+  policy: GavelOutlinedIcon,
   navigation: AccountTreeOutlinedIcon,
   media: PermMediaOutlinedIcon,
   messages: MailOutlinedIcon,
@@ -111,9 +117,19 @@ export default function AdminShell({
   const drawer = (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <Toolbar sx={{ px: 2 }}>
-        <Typography variant="h6" fontWeight={800} noWrap>
-          Pi&nbsp;<Box component="span" sx={{ color: "primary.main" }}>Techniques</Box>
-        </Typography>
+        <Box
+          component={Link}
+          href="/admin"
+          aria-label="Pi Techniques admin"
+          sx={{ display: "inline-flex", alignItems: "center" }}
+        >
+          <Box
+            component="img"
+            src="/images/footer-logo.svg"
+            alt="Pi Techniques"
+            sx={{ height: 34, width: "auto", display: "block" }}
+          />
+        </Box>
       </Toolbar>
       <Divider />
       <Box sx={{ overflowY: "auto", flexGrow: 1, py: 1 }}>

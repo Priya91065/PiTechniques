@@ -34,6 +34,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useNotify } from "@/components/admin/NotificationProvider";
 import { useConfirm } from "@/components/admin/ConfirmProvider";
 import type { MediaPermissions } from "@/types/media";
+import SeoFieldsSection, { EMPTY_SEO_FIELDS, type SeoFieldsValue } from "@/components/admin/shared/SeoFieldsSection";
 
 interface Solution {
   title: string;
@@ -74,7 +75,11 @@ interface AdminCaseStudy {
   featureGridVariant: string;
   seoTitle: string | null;
   seoDescription: string | null;
+  seoKeywords: string | null;
+  canonicalUrl: string | null;
   ogImage: string | null;
+  twitterImage: string | null;
+  robotsMeta: string | null;
   published: boolean;
   order: number;
   solutions: Solution[];
@@ -104,9 +109,7 @@ interface FormState {
   challengeBackground: string;
   solutionDetails: string;
   longTermImpactTitle: string;
-  seoTitle: string;
-  seoDescription: string;
-  ogImage: string;
+  seo: SeoFieldsValue;
   published: boolean;
   solutions: { title: string; subTitle: string; items: string }[];
   features: Feature[];
@@ -135,9 +138,7 @@ const EMPTY: FormState = {
   challengeBackground: "",
   solutionDetails: "",
   longTermImpactTitle: "",
-  seoTitle: "",
-  seoDescription: "",
-  ogImage: "",
+  seo: EMPTY_SEO_FIELDS,
   published: true,
   solutions: [],
   features: [],
@@ -207,9 +208,15 @@ export default function CaseStudiesManager({ perms }: { perms: MediaPermissions 
       challengeBackground: c.challengeBackground,
       solutionDetails: c.solutionDetails,
       longTermImpactTitle: c.longTermImpactTitle,
-      seoTitle: c.seoTitle ?? "",
-      seoDescription: c.seoDescription ?? "",
-      ogImage: c.ogImage ?? "",
+      seo: {
+        seoTitle: c.seoTitle ?? "",
+        seoDescription: c.seoDescription ?? "",
+        seoKeywords: c.seoKeywords ?? "",
+        canonicalUrl: c.canonicalUrl ?? "",
+        ogImage: c.ogImage ?? "",
+        twitterImage: c.twitterImage ?? "",
+        robotsMeta: c.robotsMeta ?? "",
+      },
       published: c.published,
       solutions: c.solutions.map((s) => ({ title: s.title, subTitle: s.subTitle, items: s.items.join("\n") })),
       features: c.features.map((f) => ({ image: f.image, feature: f.feature })),
@@ -247,9 +254,13 @@ export default function CaseStudiesManager({ perms }: { perms: MediaPermissions 
         challengeBackground: form.challengeBackground,
         solutionDetails: form.solutionDetails,
         longTermImpactTitle: form.longTermImpactTitle,
-        seoTitle: form.seoTitle || null,
-        seoDescription: form.seoDescription || null,
-        ogImage: form.ogImage || null,
+        seoTitle: form.seo.seoTitle || null,
+        seoDescription: form.seo.seoDescription || null,
+        seoKeywords: form.seo.seoKeywords || null,
+        canonicalUrl: form.seo.canonicalUrl || null,
+        ogImage: form.seo.ogImage || null,
+        twitterImage: form.seo.twitterImage || null,
+        robotsMeta: form.seo.robotsMeta || null,
         published: form.published,
         solutions: form.solutions.map((s) => ({ title: s.title, subTitle: s.subTitle, items: lines(s.items) })),
         features: form.features,
@@ -545,13 +556,7 @@ export default function CaseStudiesManager({ perms }: { perms: MediaPermissions 
               Add impact
             </Button>
 
-            <Divider />
-            <Typography variant="overline" color="text.secondary">
-              SEO
-            </Typography>
-            <TextField label="SEO title" value={form.seoTitle} onChange={(e) => set({ seoTitle: e.target.value })} fullWidth />
-            <TextField label="SEO description" value={form.seoDescription} onChange={(e) => set({ seoDescription: e.target.value })} multiline minRows={2} fullWidth />
-            <TextField label="OG image URL" value={form.ogImage} onChange={(e) => set({ ogImage: e.target.value })} fullWidth />
+            <SeoFieldsSection value={form.seo} onChange={(next) => set({ seo: next })} disabled={!perms.canEdit} />
             <FormControlLabel
               control={<Switch checked={form.published} onChange={(e) => set({ published: e.target.checked })} />}
               label="Published"

@@ -5,6 +5,7 @@ export type IconKey =
   | "homepage"
   | "banner"
   | "pages"
+  | "about"
   | "services"
   | "caseStudies"
   | "testimonials"
@@ -12,6 +13,8 @@ export type IconKey =
   | "faqs"
   | "clients"
   | "careers"
+  | "contactPage"
+  | "policy"
   | "navigation"
   | "media"
   | "messages"
@@ -46,6 +49,7 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       { label: "Banner", href: "/admin/banner", icon: "banner" },
       { label: "Pages", href: "/admin/pages", icon: "pages" },
+      { label: "About Page", href: "/admin/about", icon: "about" },
       { label: "Services", href: "/admin/services", icon: "services" },
       { label: "Case Studies", href: "/admin/case-studies", icon: "caseStudies" },
       { label: "Testimonials", href: "/admin/testimonials", icon: "testimonials" },
@@ -53,6 +57,8 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "FAQs", href: "/admin/faqs", icon: "faqs" },
       { label: "Clients", href: "/admin/clients", icon: "clients" },
       { label: "Careers", href: "/admin/jobs", icon: "careers" },
+      { label: "Contact Page", href: "/admin/contact-page", icon: "contactPage" },
+      { label: "Policy Pages", href: "/admin/policy-pages", icon: "policy" },
       { label: "Navigation", href: "/admin/navigation", icon: "navigation" },
     ],
   },

@@ -24,7 +24,11 @@ export const caseStudyInput = z.object({
   featureGridVariant: z.string().trim().default(""),
   seoTitle: z.string().trim().nullable().optional(),
   seoDescription: z.string().trim().nullable().optional(),
+  seoKeywords: z.string().trim().nullable().optional(),
+  canonicalUrl: z.string().trim().nullable().optional(),
   ogImage: z.string().trim().nullable().optional(),
+  twitterImage: z.string().trim().nullable().optional(),
+  robotsMeta: z.string().trim().nullable().optional(),
   published: z.boolean().optional(),
   solutions: z
     .array(

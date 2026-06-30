@@ -19,6 +19,13 @@ export async function createService(data: ServiceInput): Promise<Service> {
       tags: data.tags,
       published: data.published ?? true,
       order: (max._max.order ?? -1) + 1,
+      seoTitle: data.seoTitle ?? null,
+      seoDescription: data.seoDescription ?? null,
+      seoKeywords: data.seoKeywords ?? null,
+      canonicalUrl: data.canonicalUrl ?? null,
+      ogImage: data.ogImage ?? null,
+      twitterImage: data.twitterImage ?? null,
+      robotsMeta: data.robotsMeta ?? null,
     },
   });
 }
@@ -35,6 +42,13 @@ export function updateService(id: string, data: Partial<ServiceInput>): Promise<
       ...(data.iconLight !== undefined ? { iconLight: data.iconLight } : {}),
       ...(data.tags !== undefined ? { tags: data.tags } : {}),
       ...(data.published !== undefined ? { published: data.published } : {}),
+      ...(data.seoTitle !== undefined ? { seoTitle: data.seoTitle } : {}),
+      ...(data.seoDescription !== undefined ? { seoDescription: data.seoDescription } : {}),
+      ...(data.seoKeywords !== undefined ? { seoKeywords: data.seoKeywords } : {}),
+      ...(data.canonicalUrl !== undefined ? { canonicalUrl: data.canonicalUrl } : {}),
+      ...(data.ogImage !== undefined ? { ogImage: data.ogImage } : {}),
+      ...(data.twitterImage !== undefined ? { twitterImage: data.twitterImage } : {}),
+      ...(data.robotsMeta !== undefined ? { robotsMeta: data.robotsMeta } : {}),
     },
   });
 }

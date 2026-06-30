@@ -32,6 +32,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useNotify } from "@/components/admin/NotificationProvider";
 import { useConfirm } from "@/components/admin/ConfirmProvider";
 import type { MediaPermissions } from "@/types/media";
+import SeoFieldsSection, { EMPTY_SEO_FIELDS, type SeoFieldsValue } from "@/components/admin/shared/SeoFieldsSection";
 
 interface AdminService {
   id: string;
@@ -44,6 +45,13 @@ interface AdminService {
   tags: string[];
   published: boolean;
   order: number;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  seoKeywords: string | null;
+  canonicalUrl: string | null;
+  ogImage: string | null;
+  twitterImage: string | null;
+  robotsMeta: string | null;
 }
 
 type FormState = {
@@ -55,6 +63,7 @@ type FormState = {
   iconLight: string;
   tags: string;
   published: boolean;
+  seo: SeoFieldsValue;
 };
 
 const EMPTY: FormState = {
@@ -66,6 +75,7 @@ const EMPTY: FormState = {
   iconLight: "",
   tags: "",
   published: true,
+  seo: EMPTY_SEO_FIELDS,
 };
 
 export default function ServicesManager({ perms }: { perms: MediaPermissions }): JSX.Element {
@@ -116,6 +126,15 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
       iconLight: s.iconLight,
       tags: s.tags.join(", "),
       published: s.published,
+      seo: {
+        seoTitle: s.seoTitle ?? "",
+        seoDescription: s.seoDescription ?? "",
+        seoKeywords: s.seoKeywords ?? "",
+        canonicalUrl: s.canonicalUrl ?? "",
+        ogImage: s.ogImage ?? "",
+        twitterImage: s.twitterImage ?? "",
+        robotsMeta: s.robotsMeta ?? "",
+      },
     });
     setDialogOpen(true);
   }
@@ -136,6 +155,13 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
         iconLight: form.iconLight || "/images/services-lottie/Tailored.png",
         tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
         published: form.published,
+        seoTitle: form.seo.seoTitle || null,
+        seoDescription: form.seo.seoDescription || null,
+        seoKeywords: form.seo.seoKeywords || null,
+        canonicalUrl: form.seo.canonicalUrl || null,
+        ogImage: form.seo.ogImage || null,
+        twitterImage: form.seo.twitterImage || null,
+        robotsMeta: form.seo.robotsMeta || null,
       };
       const url = editingId ? `/api/admin/services/${editingId}` : "/api/admin/services";
       const res = await fetch(url, {
@@ -363,6 +389,11 @@ export default function ServicesManager({ perms }: { perms: MediaPermissions }):
               value={form.tags}
               onChange={(e) => setForm((f) => ({ ...f, tags: e.target.value }))}
               fullWidth
+            />
+            <SeoFieldsSection
+              value={form.seo}
+              onChange={(next) => setForm((f) => ({ ...f, seo: next }))}
+              disabled={!perms.canEdit}
             />
             <FormControlLabel
               control={
