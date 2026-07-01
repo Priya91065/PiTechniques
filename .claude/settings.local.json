@@ -128,7 +128,16 @@
       "Bash(curl -s -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -F \"source=CAREER\" -F \"firstName=Test\" -F \"email=test@example.com\" -F \"phone=1234567890\" -F \"position=Software Tester\" -F \"message=diagnostic probe\" -F \"resume=@/c/Users/bhoip/AppData/Local/Temp/claude/probe.pdf;type=application/pdf\")",
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -H \"Content-Type: application/json\" -d '{\"source\":\"CONTACT\",\"firstName\":\"Test\",\"email\":\"test@example.com\",\"message\":\"diagnostic probe\"}')",
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -F \"source=CAREER\" -F \"firstName=Test\" -F \"email=test@example.com\" -F \"phone=1234567890\" -F \"position=Software Tester\" -F \"message=diagnostic probe\" -F \"resume=@probe.pdf;type=application/pdf\")",
-      "Bash(rm -f probe.pdf)"
+      "Bash(rm -f probe.pdf)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/ --max-time 10)",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"source\":\"CONTACT\",\"firstName\":\"Test\",\"lastName\":\"User\",\"email\":\"test@example.com\",\"phone\":\"9099299454\",\"message\":\"hello test\"}' -w \"\\\\nHTTP_STATUS:%{http_code}\\\\n\")",
+      "Bash(printf '%%PDF-1.4\\\\n%%test pdf content\\\\n')",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -F source=CAREER -F firstName=Test -F lastName=User -F email=test@example.com -F phone=9099299454 -F 'message=career test' -F 'position=Software Tester' -F 'resume=@/tmp/test-resume.pdf;type=application/pdf' -w '\\\\nHTTP_STATUS:%{http_code}\\\\n')",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -F source=CAREER -F firstName=Test -F lastName=User -F email=test@example.com -F phone=9099299454 -F 'message=career test' -F 'position=Software Tester' -F 'resume=@C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\53bf8d6c-383f-4c51-979d-5b63611ca0c0\\\\scratchpad/test-resume.pdf;type=application/pdf' -w '\\\\nHTTP_STATUS:%{http_code}\\\\n')",
+      "Bash(where vercel *)",
+      "Bash(vercel --version)",
+      "Bash(vercel whoami *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"source\":\"CONTACT\",\"firstName\":\"Test2\",\"lastName\":\"User2\",\"email\":\"test2@example.com\",\"phone\":\"9099299455\",\"message\":\"hello test after fix\"}' -w \"\\\\nHTTP_STATUS:%{http_code}\\\\n\")"
     ]
   }
 }
