@@ -66,7 +66,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           resumeUrl = (await saveResume(resume)).url;
         } catch (err) {
           if (err instanceof ResumeUploadError) return jsonError(err.message, 422);
-          throw err;
+          // A non-validation failure here is almost always storage-related
+          // (e.g. Vercel's read-only filesystem when BLOB_READ_WRITE_TOKEN is
+          // unset). Log the real cause and surface a clear message instead of
+          // letting it fall through to the generic "Invalid request".
+          console.error("[contact] resume upload failed:", err);
+          return jsonError(
+            "We couldn't upload your CV right now. Please try again, or email it to us directly.",
+            502,
+          );
         }
       }
       raw = {
@@ -82,7 +90,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     } else {
       raw = (await req.json()) as Record<string, unknown>;
     }
-  } catch {
+  } catch (err) {
+    console.error("[contact] failed to read request body:", err);
     return jsonError("Invalid request", 400);
   }
 
