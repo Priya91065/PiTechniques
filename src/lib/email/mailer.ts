@@ -16,10 +16,23 @@ import { getServerEnv } from "@/lib/env";
 
 let transporter: Transporter | null = null;
 
-/** True when the minimum SMTP credentials are present. */
+/**
+ * True when the minimum SMTP credentials are present.
+ *
+ * `getServerEnv()` validates the *entire* env schema (JWT secrets, DATABASE_URL,
+ * etc.), not just the SMTP fields — so an unrelated misconfigured var elsewhere
+ * would otherwise throw here and take down public form submissions that have
+ * nothing to do with email. Treat any validation failure as "not configured"
+ * rather than letting it crash the caller.
+ */
 export function isEmailConfigured(): boolean {
-  const env = getServerEnv();
-  return Boolean(env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASS);
+  try {
+    const env = getServerEnv();
+    return Boolean(env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASS);
+  } catch (err) {
+    console.error("[mailer] server env validation failed, treating email as unconfigured:", err);
+    return false;
+  }
 }
 
 function getTransporter(): Transporter {
