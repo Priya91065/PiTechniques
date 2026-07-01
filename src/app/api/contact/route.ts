@@ -42,6 +42,20 @@ function escapeHtml(s: string): string {
  * Persists the message so it shows up in the admin Messages inbox.
  */
 export async function POST(req: NextRequest): Promise<NextResponse> {
+  try {
+    return await handlePost(req);
+  } catch (err) {
+    // Last-resort safety net: every known failure mode above already returns a
+    // JSON error, but if something unexpected throws (e.g. a misconfigured env
+    // var unrelated to this request), fall back to a real JSON response instead
+    // of letting Next.js return a bare non-JSON 500 page — the frontend's
+    // jQuery handlers only render `xhr.responseJSON.error`.
+    console.error("[contact] unexpected error:", err);
+    return jsonError("Something went wrong. Please try again.", 500);
+  }
+}
+
+async function handlePost(req: NextRequest): Promise<NextResponse> {
   // Throttle abuse: max 5 submissions per 10 minutes per IP.
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   const limited = rateLimit(`contact:${ip}`, 5, 10 * 60 * 1000);
