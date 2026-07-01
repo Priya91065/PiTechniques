@@ -122,7 +122,13 @@
       "Bash(git merge *)",
       "Bash(mv .env .env.bak)",
       "Bash(DATABASE_URL=\"\" DIRECT_URL=\"\" POSTGRES_PRISMA_URL=\"\" POSTGRES_URL=\"\" npm run build)",
-      "Bash(mv .env.bak .env)"
+      "Bash(mv .env.bak .env)",
+      "Bash(printf '%%PDF-1.4\\\\n1 *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -F \"source=CAREER\" -F \"firstName=Test\" -F \"email=test@example.com\" -F \"phone=1234567890\" -F \"position=Software Tester\" -F \"message=diagnostic probe\" -F \"resume=@/c/Users/bhoip/AppData/Local/Temp/claude/probe.pdf;type=application/pdf\")",
+      "Bash(curl -s -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -F \"source=CAREER\" -F \"firstName=Test\" -F \"email=test@example.com\" -F \"phone=1234567890\" -F \"position=Software Tester\" -F \"message=diagnostic probe\" -F \"resume=@/c/Users/bhoip/AppData/Local/Temp/claude/probe.pdf;type=application/pdf\")",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -H \"Content-Type: application/json\" -d '{\"source\":\"CONTACT\",\"firstName\":\"Test\",\"email\":\"test@example.com\",\"message\":\"diagnostic probe\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://pi-techniques-nine.vercel.app/api/contact\" -F \"source=CAREER\" -F \"firstName=Test\" -F \"email=test@example.com\" -F \"phone=1234567890\" -F \"position=Software Tester\" -F \"message=diagnostic probe\" -F \"resume=@probe.pdf;type=application/pdf\")",
+      "Bash(rm -f probe.pdf)"
     ]
   }
 }
