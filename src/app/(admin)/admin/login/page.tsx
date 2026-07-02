@@ -10,7 +10,6 @@ import {
   Paper,
   Stack,
   TextField,
-  Typography,
 } from "@mui/material";
 
 function LoginForm(): JSX.Element {
@@ -66,9 +65,6 @@ function LoginForm(): JSX.Element {
             alt="Pi Techniques"
             sx={{ height: 44, width: "auto" }}
           />
-          <Typography variant="body2" color="text.secondary">
-            Admin sign in
-          </Typography>
         </Stack>
 
         <form onSubmit={onSubmit} noValidate>

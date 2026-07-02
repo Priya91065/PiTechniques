@@ -38,6 +38,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useNotify } from "@/components/admin/NotificationProvider";
 import { useConfirm } from "@/components/admin/ConfirmProvider";
 import { slugify } from "@/lib/slug";
+import { isSystemSlug } from "@/lib/systemPages";
 
 export interface PagePermissions {
   canCreate: boolean;
@@ -300,8 +301,11 @@ export default function PagesManager({ perms }: { perms: PagePermissions }): JSX
             ) : (
               items.map((p) => (
                 <TableRow key={p.id} hover>
-                  <TableCell sx={{ fontWeight: 600 }}>{p.title}</TableCell>
-                  <TableCell sx={{ color: "text.secondary" }}>/{p.slug}</TableCell>
+                  <TableCell sx={{ fontWeight: 600 }}>
+                    {p.title}
+                    {isSystemSlug(p.slug) && <Chip size="small" label="System" variant="outlined" sx={{ ml: 1 }} />}
+                  </TableCell>
+                  <TableCell sx={{ color: "text.secondary" }}>/{p.slug === "home" ? "" : p.slug}</TableCell>
                   <TableCell>
                     <Chip
                       size="small"
@@ -314,7 +318,7 @@ export default function PagesManager({ perms }: { perms: PagePermissions }): JSX
                     {new Date(p.updatedAt).toLocaleDateString()}
                   </TableCell>
                   <TableCell align="right">
-                    {perms.canPublish && (
+                    {perms.canPublish && !isSystemSlug(p.slug) && (
                       <Tooltip title={p.status === "PUBLISHED" ? "Unpublish" : "Publish"}>
                         <IconButton size="small" onClick={() => void toggleStatus(p)}>
                           {p.status === "PUBLISHED" ? (
@@ -325,7 +329,7 @@ export default function PagesManager({ perms }: { perms: PagePermissions }): JSX
                         </IconButton>
                       </Tooltip>
                     )}
-                    {perms.canCreate && (
+                    {perms.canCreate && !isSystemSlug(p.slug) && (
                       <Tooltip title="Duplicate">
                         <IconButton size="small" onClick={() => void duplicate(p)}>
                           <ContentCopyOutlinedIcon fontSize="small" />
@@ -337,14 +341,14 @@ export default function PagesManager({ perms }: { perms: PagePermissions }): JSX
                         <ArticleOutlinedIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
-                    {perms.canEdit && (
+                    {perms.canEdit && !isSystemSlug(p.slug) && (
                       <Tooltip title="Edit details">
                         <IconButton size="small" onClick={() => openEdit(p)}>
                           <EditOutlinedIcon fontSize="small" />
                         </IconButton>
                       </Tooltip>
                     )}
-                    {perms.canDelete && (
+                    {perms.canDelete && !isSystemSlug(p.slug) && (
                       <Tooltip title="Delete">
                         <IconButton size="small" color="error" onClick={() => void remove(p)}>
                           <DeleteOutlineOutlinedIcon fontSize="small" />
