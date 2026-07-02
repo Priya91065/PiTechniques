@@ -166,7 +166,8 @@
       "PowerShell(git commit -F \"C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\1700c4b1-a2f3-40c9-96e1-bf54dca5e337\\\\scratchpad\\\\commitmsg.txt\")",
       "PowerShell(git add .claude/settings.local.json)",
       "PowerShell(git commit -m \"chore\\(claude\\): record local permission entries\")",
-      "PowerShell(git push -u origin feat/wordpress-style-pages-cms)"
+      "PowerShell(git push -u origin feat/wordpress-style-pages-cms)",
+      "PowerShell(gh pr create --repo Priya91065/PiTechniques --base main --head feat/wordpress-style-pages-cms --title \"feat\\(cms\\): WordPress-style Pages module with section builder\" --body-file \"C:\\\\Users\\\\bhoip\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\P--PI-Tech-AI-Claude-AI-files-pi-techniques-pi-techniques\\\\1700c4b1-a2f3-40c9-96e1-bf54dca5e337\\\\scratchpad\\\\prbody.md\")"
     ]
   }
 }
