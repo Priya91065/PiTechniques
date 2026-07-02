@@ -29,8 +29,6 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
-import ViewCarouselOutlinedIcon from "@mui/icons-material/ViewCarouselOutlined";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import DesignServicesOutlinedIcon from "@mui/icons-material/DesignServicesOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -40,11 +38,8 @@ import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 import PermMediaOutlinedIcon from "@mui/icons-material/PermMediaOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -56,10 +51,7 @@ const DRAWER_WIDTH = 264;
 const ICONS: Record<IconKey, ElementType> = {
   dashboard: SpaceDashboardOutlinedIcon,
   analytics: InsightsOutlinedIcon,
-  homepage: HomeOutlinedIcon,
-  banner: ViewCarouselOutlinedIcon,
   pages: DescriptionOutlinedIcon,
-  about: InfoOutlinedIcon,
   services: DesignServicesOutlinedIcon,
   caseStudies: WorkOutlineOutlinedIcon,
   testimonials: FormatQuoteOutlinedIcon,
@@ -67,8 +59,6 @@ const ICONS: Record<IconKey, ElementType> = {
   faqs: QuizOutlinedIcon,
   clients: BusinessOutlinedIcon,
   careers: BadgeOutlinedIcon,
-  contactPage: ContactMailOutlinedIcon,
-  policy: GavelOutlinedIcon,
   navigation: AccountTreeOutlinedIcon,
   media: PermMediaOutlinedIcon,
   messages: MailOutlinedIcon,

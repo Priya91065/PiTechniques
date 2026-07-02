@@ -120,8 +120,8 @@ export default function PolicyPageEditor({ slug, perms }: { slug: string; perms:
     <Box>
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2, flexWrap: "wrap", gap: 1 }}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <Button component={NextLink} href="/admin/policy-pages" size="small">
-            ← Policy pages
+          <Button component={NextLink} href="/admin/pages" size="small">
+            ← Pages
           </Button>
           <Typography variant="h4" fontWeight={800}>
             Edit: {slug}

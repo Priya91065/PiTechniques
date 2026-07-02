@@ -2,6 +2,7 @@ import { Prisma, type Page, type PageStatus } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import type { PageInput } from "@/lib/validation/page";
 import { slugify } from "@/lib/slug";
+import { SYSTEM_PAGES } from "@/lib/systemPages";
 
 const SORTABLE = ["title", "slug", "status", "createdAt", "updatedAt"] as const;
 export type PageSortField = (typeof SORTABLE)[number];
@@ -38,6 +39,18 @@ export async function listPages(params: ListPagesParams): Promise<{ items: Page[
 
 export function getPage(id: string): Promise<Page | null> {
   return prisma.page.findUnique({ where: { id } });
+}
+
+export function getPageBySlug(slug: string): Promise<Page | null> {
+  return prisma.page.findUnique({ where: { slug } });
+}
+
+/** Seed missing system pages (Home, About, Contact, policies…) — idempotent. */
+export async function ensureSystemPages(): Promise<void> {
+  await prisma.page.createMany({
+    data: SYSTEM_PAGES.map((p) => ({ slug: p.slug, title: p.title, status: "PUBLISHED" as PageStatus })),
+    skipDuplicates: true,
+  });
 }
 
 export function createPage(data: PageInput): Promise<Page> {

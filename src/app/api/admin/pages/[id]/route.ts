@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { guard } from "@/lib/api/guard";
 import { jsonError, jsonOk } from "@/lib/api/http";
 import { pageInput } from "@/lib/validation/page";
+import { isSystemSlug } from "@/lib/systemPages";
 import { deletePage, updatePage } from "@/server/services/pages";
 
 type Ctx = { params: Promise<{ id: string }> };
@@ -25,6 +26,11 @@ export async function PATCH(req: NextRequest, { params }: Ctx): Promise<NextResp
 
   const existing = await prisma.page.findUnique({ where: { id } });
   if (!existing) return jsonError("Page not found", 404);
+
+  // System pages are bound to fixed routes — their slug must not change.
+  if (isSystemSlug(existing.slug) && parsed.data.slug !== undefined && parsed.data.slug !== existing.slug) {
+    return jsonError("System page slugs cannot be changed", 422);
+  }
 
   // Publish/unpublish requires the PUBLISH permission.
   if (parsed.data.status !== undefined && parsed.data.status !== existing.status) {
@@ -60,6 +66,7 @@ export async function DELETE(_req: NextRequest, { params }: Ctx): Promise<NextRe
 
   const existing = await prisma.page.findUnique({ where: { id } });
   if (!existing) return jsonError("Page not found", 404);
+  if (isSystemSlug(existing.slug)) return jsonError("System pages cannot be deleted", 422);
 
   await deletePage(id);
   await prisma.activityLog.create({
